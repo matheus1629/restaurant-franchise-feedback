@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="" />
+    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +41,14 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2dgkoDsLAbuypWENkWqH3CKs8bS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,8 +62,8 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/feedbackscollector",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,14 +73,35 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "13f6e5307dfb00978d65da399e9f9fbf",
+    "spring.configuration.checksum": "2f560a420a3cc0a96bb42cf6c05edce0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GetewayserverApplication">
     <configuration name="EurekaserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eurekaserver" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.eurekaserver.EurekaserverApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedbackscollectorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feedbackscollector" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbackscollector.FeedbackscollectorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetewayserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="getewayserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.getewayserver.GetewayserverApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,11 +116,23 @@
       <option name="presentableId" value="Default" />
       <updated>1710437281620</updated>
       <workItem from="1710437283449" duration="3005000" />
-      <workItem from="1710440308156" duration="2311000" />
+      <workItem from="1710440308156" duration="7238000" />
+      <workItem from="1710505821983" duration="3607000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
