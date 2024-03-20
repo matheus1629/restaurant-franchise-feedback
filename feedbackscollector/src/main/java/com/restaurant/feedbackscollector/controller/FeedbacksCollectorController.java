@@ -1,9 +1,8 @@
 package com.restaurant.feedbackscollector.controller;
 
 import com.restaurant.feedbackscollector.dto.FeedbackDto;
+import com.restaurant.feedbackscollector.service.FeedbacksCollectorService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RequiredArgsConstructor
 @Tag(name = "Send Feedback")
-public class feedbacksCollectorController {
+public class FeedbacksCollectorController {
+
+  private final FeedbacksCollectorService feedbacksCollectorService;
 
     @Operation(
             summary = "Send Feedback",
@@ -45,6 +46,7 @@ public class feedbacksCollectorController {
     )
     @PostMapping("/send-feedback")
     public ResponseEntity<Void> sendFeedback(@Valid @RequestBody FeedbackDto feedbackDto) {
+        feedbacksCollectorService.sendFeedback(feedbackDto);
         return ResponseEntity.noContent().build();
     }
 }

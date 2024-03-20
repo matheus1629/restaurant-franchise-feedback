@@ -5,7 +5,6 @@ import com.restaurant.feedbackscollector.enums.LevelSatisfaction;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
 @Schema(

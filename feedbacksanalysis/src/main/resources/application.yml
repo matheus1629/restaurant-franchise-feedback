@@ -1,0 +1,63 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: "feedbacksanalysis"
+  cloud:
+    function:
+      definition: feedbackReceiver
+    stream:
+      bindings:
+        feedbacksReceiver-in-0:
+          destination: send-feedback
+          group: ${spring.application.name}
+        feedbacksReceiver-out-0:
+          destination: feedback-sent
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  info:
+    env:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+endpoints:
+  shutdown:
+    enabled: true
+
+
+info:
+  app:
+    name: "feedbackscollector"
+    description: "Restaurant Franchise Feedbacks Collector Application"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      restaurant:
+        accounts: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+

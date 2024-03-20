@@ -35,7 +35,7 @@ public class GetewayserverApplication {
                                 .circuitBreaker(config -> config.setName("accountsCircuitBreaker")
                                         .setFallbackUri("forward:/contactSupport"))
                         )
-                        .uri("lb://ACCOUNTS")).build();
+                        .uri("lb://FEEDBACKSCOLLECTOR")).build();
 
 
     }

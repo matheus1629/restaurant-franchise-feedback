@@ -8,15 +8,13 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
-    function:
-      definition: feedbackCollected
     stream:
       bindings:
         feedbackCollected-in-0:
           destination: feedback-sent
           group: ${spring.application.name}
         sendFeedback-out-0:
-          destination: send-feedback # exchange name
+          destination: send-feedback
       kafka:
         binder:
           brokers:
@@ -70,10 +68,7 @@ logging:
         accounts: DEBUG
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
-    #       %5p: 5 length character (warn, error, info, debbug)
-    #            ${spring.application.name}: nome da applicação (accounts)
-    #                                       %X{trace_id}: gerar o trace ID
-    #                                                    %X{span_id}: gerar o span ID
+
 resilience4j.circuitbreaker:
   configs:
     default:
