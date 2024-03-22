@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -66,6 +67,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         body.put("messages", messages);
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Object> handleException(ResourceNotFoundException exception) {
+
+        Map<String, Object> body = createResponseBody(HttpStatus.NOT_FOUND, exception.getMessage());
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(MessageSendFailedException.class)
+    public ResponseEntity<Object> handleException(MessageSendFailedException exception) {
+
+        Map<String, Object> body = createResponseBody(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
+        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private Map<String, Object> createResponseBody(HttpStatus status, String message) {

@@ -4,15 +4,17 @@ server:
 spring:
   application:
     name: "feedbackscollector"
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: feedback-restaurant
   cloud:
     openfeign:
       circuitbreaker:
         enabled: true
     stream:
       bindings:
-        feedbackCollected-in-0:
-          destination: feedback-sent
-          group: ${spring.application.name}
         sendFeedback-out-0:
           destination: send-feedback
       kafka:
@@ -65,7 +67,7 @@ logging:
   level:
     com:
       restaurant:
-        accounts: DEBUG
+        feedbackscollector: DEBUG
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 

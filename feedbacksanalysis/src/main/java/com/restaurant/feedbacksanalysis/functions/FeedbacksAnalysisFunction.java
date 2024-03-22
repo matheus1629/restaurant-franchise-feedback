@@ -1,20 +1,21 @@
 package com.restaurant.feedbacksanalysis.functions;
 
-import com.restaurant.feedbacksanalysis.dto.FeedbacksAnalysisDto;
+import com.restaurant.feedbacksanalysis.dto.FeedbackAnalysisDto;
+import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 @Configuration
+@RequiredArgsConstructor
 public class FeedbacksAnalysisFunction {
 
-    @Bean
-    public Function<FeedbacksAnalysisDto, Boolean> feedbackReceiver() {
-        return feedbackDto -> {
-            System.out.println("DDDDDDDDDDDDDD" + feedbackDto);
+    private final FeedbacksAnalysisService feedbacksAnalysisService;
 
-            return true;
-        };
+    @Bean
+    public Consumer<FeedbackAnalysisDto> feedbacksReceiver() {
+        return feedbackDto -> feedbacksAnalysisService.saveFeedback(feedbackDto);
     }
 }

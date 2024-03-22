@@ -4,13 +4,20 @@ import com.restaurant.feedbackscollector.enums.Gender;
 import com.restaurant.feedbackscollector.enums.LevelSatisfaction;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+
 @Schema(
         name = "Feedback",
         description = "Schema to hold feedback information"
 )
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class FeedbackDto {
 
     @Schema(description = "Id number of the restaurant", example = "1")
@@ -53,4 +60,15 @@ public class FeedbackDto {
     @Schema(description = "Level of satisfaction with the ambience", example = "SATISFIED")
     @NotNull
     private LevelSatisfaction ambience;
+
+    public FeedbackDto(Integer age, Gender gender, Integer rating, LevelSatisfaction mealQuality, Boolean wrongOrder, LevelSatisfaction waitingTime, LevelSatisfaction service, LevelSatisfaction ambience) {
+        this.age = age;
+        this.gender = gender;
+        this.rating = rating;
+        this.mealQuality = mealQuality;
+        this.wrongOrder = wrongOrder;
+        this.waitingTime = waitingTime;
+        this.service = service;
+        this.ambience = ambience;
+    }
 }

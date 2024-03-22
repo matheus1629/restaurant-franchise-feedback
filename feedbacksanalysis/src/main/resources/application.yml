@@ -1,19 +1,19 @@
-server:
-  port: 8090
-
 spring:
   application:
     name: "feedbacksanalysis"
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: feedback-restaurant
   cloud:
     function:
-      definition: feedbackReceiver
+      definition: feedbacksReceiver
     stream:
       bindings:
         feedbacksReceiver-in-0:
           destination: send-feedback
           group: ${spring.application.name}
-        feedbacksReceiver-out-0:
-          destination: feedback-sent
       kafka:
         binder:
           brokers:
@@ -48,15 +48,15 @@ endpoints:
 
 info:
   app:
-    name: "feedbackscollector"
-    description: "Restaurant Franchise Feedbacks Collector Application"
+    name: "feedbacksanalysis"
+    description: "Restaurant Franchise Feedbacks Analysis Application"
     version: "1.0.0"
 
 logging:
   level:
     com:
       restaurant:
-        accounts: DEBUG
+        feedbacksanalysis: DEBUG
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 

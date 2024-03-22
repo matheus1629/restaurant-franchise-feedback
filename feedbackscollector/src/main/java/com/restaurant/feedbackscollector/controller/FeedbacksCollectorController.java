@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Send Feedback")
 public class FeedbacksCollectorController {
 
-  private final FeedbacksCollectorService feedbacksCollectorService;
+    private final FeedbacksCollectorService feedbacksCollectorService;
 
     @Operation(
             summary = "Send Feedback",
