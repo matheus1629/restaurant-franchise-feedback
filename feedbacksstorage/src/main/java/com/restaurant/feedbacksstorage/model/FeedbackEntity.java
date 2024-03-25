@@ -1,4 +1,4 @@
-package com.restaurant.feedbacksanalysis.model;
+package com.restaurant.feedbacksstorage.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

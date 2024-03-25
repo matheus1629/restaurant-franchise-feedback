@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "feedbacksanalysis"
+    name: "feedbacksstorage"
   data:
     mongodb:
       host: localhost
@@ -48,7 +48,7 @@ endpoints:
 
 info:
   app:
-    name: "feedbacksanalysis"
+    name: "feedbacksstorage"
     description: "Restaurant Franchise Feedbacks Analysis Application"
     version: "1.0.0"
 
@@ -56,7 +56,7 @@ logging:
   level:
     com:
       restaurant:
-        feedbacksanalysis: DEBUG
+        feedbacksstorage: DEBUG
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 

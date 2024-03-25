@@ -5,12 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/getewayserver/src/main/java/com/restaurant/getewayserver/controller/FallbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/getewayserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/java/com/restaurant/getewayserver/GetewayserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/getewayserver/src/main/java/com/restaurant/getewayserver/GetewayserverApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/getewayserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/FeedbacksanalysisApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/FeedbacksstorageApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/FeedbackAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/RestaurantDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/RestaurantDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/FeedbacksAnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksStorageFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/model/FeedbackEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/model/FeedbackEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/repository/FeedbacksAnalysisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/FeedbacksanalysisApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/FeedbacksstorageApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +83,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/getewayserver&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.32068965&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.repository&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9480961823bffeb1c5acc015b1bd1634&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.32068965",
+    "settings.editor.selected.configurable": "com.haulmont.jpb.repository",
+    "spring.configuration.checksum": "9480961823bffeb1c5acc015b1bd1634",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -115,16 +130,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbacksanalysisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="feedbacksanalysis" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbacksanalysis.FeedbacksanalysisApplication" />
+    <configuration name="FeedbackscollectorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feedbackscollector" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbackscollector.FeedbackscollectorApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbackscollectorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="feedbackscollector" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbackscollector.FeedbackscollectorApplication" />
+    <configuration name="FeedbacksstorageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feedbacksstorage" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbacksstorage.FeedbacksstorageApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,7 +152,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.FeedbacksanalysisApplication" />
+      <item itemvalue="Spring Boot.FeedbacksstorageApplication" />
       <item itemvalue="Spring Boot.EurekaserverApplication" />
       <item itemvalue="Spring Boot.FeedbackscollectorApplication" />
       <item itemvalue="Spring Boot.GetewayserverApplication" />
@@ -162,7 +177,8 @@
       <workItem from="1710963332618" duration="80000" />
       <workItem from="1710963417512" duration="6040000" />
       <workItem from="1711025678518" duration="22586000" />
-      <workItem from="1711108526191" duration="21278000" />
+      <workItem from="1711108526191" duration="21990000" />
+      <workItem from="1711367694185" duration="8023000" />
     </task>
     <servers />
   </component>
@@ -179,5 +195,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

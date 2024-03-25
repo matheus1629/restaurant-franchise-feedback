@@ -8,9 +8,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class FeedbackAnalysisDto extends FeedbackDto {
+public class FeedbackStorageDto extends FeedbackDto {
 
-    public FeedbackAnalysisDto(
+    public FeedbackStorageDto(
             Integer age,
             Gender gender,
             Integer rating,

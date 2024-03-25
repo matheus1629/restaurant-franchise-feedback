@@ -1,6 +1,6 @@
 package com.restaurant.feedbackscollector.service;
 
-import com.restaurant.feedbackscollector.dto.FeedbackAnalysisDto;
+import com.restaurant.feedbackscollector.dto.FeedbackStorageDto;
 import com.restaurant.feedbackscollector.dto.FeedbackDto;
 import com.restaurant.feedbackscollector.model.RestaurantEntity;
 import com.restaurant.feedbackscollector.exception.MessageSendFailedException;
@@ -22,14 +22,14 @@ public class FeedbacksCollectorService {
 
         RestaurantEntity restaurantData = getRestaurantInfo(feedbackDto.getIdRestaurant());
 
-        FeedbackAnalysisDto feedbackAnalysisDto = new FeedbackAnalysisDto(
+        FeedbackStorageDto feedbackStorageDto = new FeedbackStorageDto(
                 feedbackDto.getAge(), feedbackDto.getGender(), feedbackDto.getRating(),
                 feedbackDto.getMealQuality(), feedbackDto.getWrongOrder(), feedbackDto.getWaitingTime(),
                 feedbackDto.getService(), feedbackDto.getAmbience(), restaurantData.getIdRestaurant(),
                 restaurantData.getRegion(), restaurantData.getState(), restaurantData.getCity(), restaurantData.getCep()
         );
 
-        boolean result = streamBridge.send(channel, feedbackAnalysisDto);
+        boolean result = streamBridge.send(channel, feedbackStorageDto);
 
         if (!result) throw new MessageSendFailedException("Fail to send message to channel: " + channel);
     }

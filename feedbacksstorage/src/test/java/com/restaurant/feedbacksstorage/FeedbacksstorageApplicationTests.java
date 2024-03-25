@@ -1,10 +1,10 @@
-package com.restaurant.feedbacksanalysis;
+package com.restaurant.feedbacksstorage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FeedbacksanalysisApplicationTests {
+class FeedbacksstorageApplicationTests {
 
     @Test
     void contextLoads() {

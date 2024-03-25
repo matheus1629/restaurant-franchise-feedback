@@ -1,4 +1,4 @@
-package com.restaurant.feedbacksanalysis.dto;
+package com.restaurant.feedbacksstorage.dto;
 
 public class RestaurantDto {
 

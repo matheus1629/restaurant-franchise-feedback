@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/eurekaserver/pom.xml" />
         <option value="$PROJECT_DIR$/feedbacksanalysis/pom.xml" />
         <option value="$PROJECT_DIR$/getewayserver/pom.xml" />
+        <option value="$PROJECT_DIR$/feedbacksstorage/pom.xml" />
       </list>
     </option>
   </component>
