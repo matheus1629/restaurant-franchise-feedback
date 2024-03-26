@@ -23,6 +23,7 @@ public class FeedbacksStorageService {
                 .waitingTime(feedbackStorageDto.waitingTime())
                 .service(feedbackStorageDto.service())
                 .ambience(feedbackStorageDto.ambience())
+                .date(feedbackStorageDto.date())
                 .idRestaurant(feedbackStorageDto.idRestaurant())
                 .region(feedbackStorageDto.region())
                 .state(feedbackStorageDto.state())
@@ -34,5 +35,9 @@ public class FeedbacksStorageService {
         feedbacksStorageRepository.save(feedbackEntity);
 
 
+    }
+
+    public Object getAnalysisByRegion(Object o) {
+        return o;
     }
 }

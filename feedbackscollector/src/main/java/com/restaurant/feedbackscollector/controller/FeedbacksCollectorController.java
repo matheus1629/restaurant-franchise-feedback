@@ -26,12 +26,12 @@ public class FeedbacksCollectorController {
 
     @Operation(
             summary = "Send Feedback",
-            description = "Send feedback to analysis microservice through kafka producer"
+            description = "Send feedback to feedbacksstorage microservice through kafka"
     )
     @ApiResponses({
             @ApiResponse(
-                    responseCode = "204",
-                    description = "HTTP Status No Content"
+                    responseCode = "202",
+                    description = "HTTP Status Accepted"
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -47,6 +47,6 @@ public class FeedbacksCollectorController {
     @PostMapping("/send-feedback")
     public ResponseEntity<Void> sendFeedback(@Valid @RequestBody FeedbackDto feedbackDto) {
         feedbacksCollectorService.sendFeedback(feedbackDto);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.accepted().build();
     }
 }

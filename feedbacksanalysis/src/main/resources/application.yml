@@ -1,22 +1,22 @@
+server:
+  port: 8081
+
 spring:
   application:
-    name: "feedbacksstorage"
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: feedback-restaurant
+    name: "feedbacksanalysis"
   cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
     function:
-      definition: feedbacksReceiver;analysisByRegion
+      definition: requestAnalysisByRegion
     stream:
       bindings:
-        feedbacksReceiver-in-0:
-          destination: send-feedback
+        receiveAnalysis-in-0:
+          destination: receive-analysis
           group: ${spring.application.name}
-        analysisByRegion-in-0:
+        requestAnalysisByRegion-out-0:
           destination: request-analysis-by-region
-          group: ${spring.application.name}
       kafka:
         binder:
           brokers:
@@ -48,10 +48,18 @@ endpoints:
   shutdown:
     enabled: true
 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
 
 info:
   app:
-    name: "feedbacksstorage"
+    name: "feedbacksanalysis"
     description: "Restaurant Franchise Feedbacks Analysis Application"
     version: "1.0.0"
 
@@ -59,8 +67,6 @@ logging:
   level:
     com:
       restaurant:
-        feedbacksstorage: DEBUG
+        feedbacksanalysis: DEBUG
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
-
-

@@ -15,6 +15,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
         <module name="feedbackscollector" />
+        <module name="feedbacksanalysis" />
         <module name="getewayserver" />
         <module name="feedbacksstorage" />
       </profile>
@@ -27,6 +28,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eurekaserver" options="-parameters" />
+      <module name="feedbacksanalysis" options="-parameters" />
       <module name="feedbacksanalysis (1)" options="-parameters" />
       <module name="feedbacksanalysis (2)" options="-parameters" />
       <module name="feedbackscollector" options="-parameters" />

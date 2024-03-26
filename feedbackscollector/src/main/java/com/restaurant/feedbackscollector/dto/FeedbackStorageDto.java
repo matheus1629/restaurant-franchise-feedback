@@ -5,6 +5,8 @@ import com.restaurant.feedbackscollector.enums.LevelSatisfaction;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 
 @Setter
 @Getter
@@ -19,12 +21,14 @@ public class FeedbackStorageDto extends FeedbackDto {
             LevelSatisfaction waitingTime,
             LevelSatisfaction service,
             LevelSatisfaction ambience,
+            Date date,
             Integer idRestaurant,
             String region,
             String state,
             String city,
             String cep) {
         super(age, gender, rating, mealQuality, wrongOrder, waitingTime, service, ambience);
+        this.date = date;
         this.idRestaurant = idRestaurant;
         this.region = region;
         this.state = state;
@@ -32,7 +36,7 @@ public class FeedbackStorageDto extends FeedbackDto {
         this.cep = cep;
     }
 
-
+    private Date date;
     private Integer idRestaurant;
     private String region;
     private String state;

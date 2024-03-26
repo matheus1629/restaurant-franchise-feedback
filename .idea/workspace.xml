@@ -5,27 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/FeedbackAnalyzerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/TimeFilterDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/enums/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/enums/LevelSatisfaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksAnalysisFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederFeedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/model/RestaurantEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/FeedbacksanalysisApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/FeedbacksstorageApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/FeedbackAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/FeedbackStorageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/RestaurantDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/RestaurantDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/FeedbacksAnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksStorageFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/model/FeedbackEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/model/FeedbackEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/repository/FeedbacksAnalysisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/FeedbacksanalysisApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/FeedbacksstorageApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/init/DatabaseSeederRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederRestaurant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/FeedbackStorageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/RestaurantDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/model/FeedbackEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/model/FeedbackEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +98,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback",
+    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,7 +108,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.32068965",
     "settings.editor.selected.configurable": "com.haulmont.jpb.repository",
-    "spring.configuration.checksum": "9480961823bffeb1c5acc015b1bd1634",
+    "spring.configuration.checksum": "d26fc7f6a936969993d44d48eea3562f",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -111,7 +116,13 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksstorage\src\main\java\com\restaurant\feedbacksstorage" />
+      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalyzer\src\main\java\com\restaurant\feedbacksanalyzer" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.restaurant.feedbacksstorage.model" />
+      <recent name="com.restaurant.feedbacksanalyzer.dto" />
       <recent name="com.restaurant.feedbackscollector.exception" />
     </key>
   </component>
@@ -122,10 +133,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FeedbackscollectorApplication">
+  <component name="RunManager" selected="Spring Boot.FeedbacksanalysisApplication">
     <configuration name="EurekaserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eurekaserver" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.eurekaserver.EurekaserverApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedbacksanalysisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feedbacksanalysis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.feedbacksanalysis.FeedbacksanalysisApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,6 +170,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.FeedbacksanalysisApplication" />
       <item itemvalue="Spring Boot.FeedbacksstorageApplication" />
       <item itemvalue="Spring Boot.EurekaserverApplication" />
       <item itemvalue="Spring Boot.FeedbackscollectorApplication" />
@@ -178,7 +197,8 @@
       <workItem from="1710963417512" duration="6040000" />
       <workItem from="1711025678518" duration="22586000" />
       <workItem from="1711108526191" duration="21990000" />
-      <workItem from="1711367694185" duration="8023000" />
+      <workItem from="1711367694185" duration="15742000" />
+      <workItem from="1711454995995" duration="14577000" />
     </task>
     <servers />
   </component>
@@ -199,10 +219,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederFeedback.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

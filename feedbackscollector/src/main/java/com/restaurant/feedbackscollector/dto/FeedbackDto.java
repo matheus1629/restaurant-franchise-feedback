@@ -35,7 +35,7 @@ public class FeedbackDto {
     @NotNull
     private Gender gender;
 
-    @Schema(description = "Rating ", example = "8")
+    @Schema(description = "Integer number for rating ", example = "8")
     @NotNull
     @Min(1)
     @Max(10)

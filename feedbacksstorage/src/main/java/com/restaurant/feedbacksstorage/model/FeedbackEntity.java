@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "feedbacks")
 @Getter
 @Setter
@@ -23,6 +25,7 @@ public class FeedbackEntity {
     private String waitingTime;
     private String service;
     private String ambience;
+    private Date date;
     private Integer idRestaurant;
     private String region;
     private String state;
