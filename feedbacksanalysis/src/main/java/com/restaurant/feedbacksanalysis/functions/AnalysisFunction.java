@@ -7,10 +7,10 @@ import java.util.function.Consumer;
 public class AnalysisFunction {
 
     @Bean
-    public Consumer<Object> requestAnalysisByRegion() {
+    public Consumer<String> receiveAnalysis() {
         return o -> {
 
-            System.out.println(o);
+            System.out.println("GGGGGGGGGGG " + o);
         };
     }
 }

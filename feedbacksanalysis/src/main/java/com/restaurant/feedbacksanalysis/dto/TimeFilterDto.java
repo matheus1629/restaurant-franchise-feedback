@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Schema(
@@ -20,8 +21,8 @@ import java.util.Date;
 public class TimeFilterDto {
 
     @PastOrPresent
-    private Date initDate;
+    private LocalDate initDate;
 
     @PastOrPresent
-    private Date finalDate;
+    private LocalDate finalDate;
 }

@@ -24,10 +24,17 @@ public class GetewayserverApplication {
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
                                 .circuitBreaker(config -> config.setName("feedbacksCollectorCircuitBreaker")
                                         .setFallbackUri("forward:/contactSupport")))
-                        .uri("lb://FEEDBACKSCOLLECTOR")).build();
+                        .uri("lb://FEEDBACKSCOLLECTOR"))
+                .route(p -> p
+                        .path("/restaurant/analysis/**")
+                        .filters(f -> f.rewritePath("restaurant/analysis/(?<segment>.*)", "/${segment}")
+                                .addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
+                                .circuitBreaker(config -> config.setName("feedbacksAnalysisCircuitBreaker")
+                                        .setFallbackUri("forward:/contactSupport")))
+                        .uri("lb://FEEDBACKSANALYSIS"))
+                .build();
 
 
     }
-
 
 }

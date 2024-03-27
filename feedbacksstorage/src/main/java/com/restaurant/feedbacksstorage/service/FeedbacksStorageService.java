@@ -1,6 +1,7 @@
 package com.restaurant.feedbacksstorage.service;
 
 import com.restaurant.feedbacksstorage.dto.FeedbackStorageDto;
+import com.restaurant.feedbacksstorage.dto.TimeFilterDto;
 import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,8 @@ public class FeedbacksStorageService {
 
     }
 
-    public Object getAnalysisByRegion(Object o) {
-        return o;
+    public String getAnalysisByRegion(TimeFilterDto o) {
+        System.out.println("RRRRRRRRRRR "+o.toString());
+        return o+"asdsdsad";
     }
 }

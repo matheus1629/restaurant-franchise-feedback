@@ -1,3 +1,6 @@
+server:
+  port: 9010
+
 spring:
   application:
     name: "feedbacksstorage"
@@ -17,6 +20,8 @@ spring:
         analysisByRegion-in-0:
           destination: request-analysis-by-region
           group: ${spring.application.name}
+        analysisByRegion-out-0:
+          destination: receive-analysis
       kafka:
         binder:
           brokers:

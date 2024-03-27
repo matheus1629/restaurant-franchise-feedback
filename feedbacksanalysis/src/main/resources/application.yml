@@ -9,7 +9,7 @@ spring:
       circuitbreaker:
         enabled: true
     function:
-      definition: requestAnalysisByRegion
+      definition: receiveAnalysis
     stream:
       bindings:
         receiveAnalysis-in-0:

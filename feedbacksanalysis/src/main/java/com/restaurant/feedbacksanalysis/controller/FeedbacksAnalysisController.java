@@ -1,18 +1,20 @@
 package com.restaurant.feedbacksanalysis.controller;
 
-import com.restaurant.feedbacksanalysis.dto.TimeFilterDto;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -45,8 +47,10 @@ public class FeedbacksAnalysisController {
     }
     )
     @GetMapping("/region-analysis")
-    public ResponseEntity<Void> sendFeedback(@Valid TimeFilterDto timeFilterDto) {
-        feedbacksAnalysisService.getAnalysisByRegion(timeFilterDto);
+    public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
+                                               @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
+        System.out.println(initDate + "  "+finalDate);
+        feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
         return ResponseEntity.noContent().build();
     }
 }
