@@ -10,8 +10,9 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,12 +34,12 @@ public class DatabaseSeederFeedback {
         return list.get(randomIndex);
     }
 
-    public static Date generateRandomDate() {
+    public static LocalDate generateRandomDate() {
         long startMillis = 1609459200000L; // 01/01/2021 00:00:00 GMT
         long endMillis = 1714675199000L; // 31/03/2024 23:59:59 GMT
         long randomMillisSinceEpoch = ThreadLocalRandom.current().nextLong(startMillis, endMillis);
 
-        return new Date(randomMillisSinceEpoch);
+        return LocalDate.from(Instant.ofEpochMilli(randomMillisSinceEpoch));
     }
 
     @Bean

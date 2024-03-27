@@ -7,6 +7,10 @@ import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class FeedbacksStorageService {
@@ -24,7 +28,7 @@ public class FeedbacksStorageService {
                 .waitingTime(feedbackStorageDto.waitingTime())
                 .service(feedbackStorageDto.service())
                 .ambience(feedbackStorageDto.ambience())
-                .date(feedbackStorageDto.date())
+                .date(LocalDate.parse(feedbackStorageDto.date()))
                 .idRestaurant(feedbackStorageDto.idRestaurant())
                 .region(feedbackStorageDto.region())
                 .state(feedbackStorageDto.state())
@@ -38,8 +42,10 @@ public class FeedbacksStorageService {
 
     }
 
-    public String getAnalysisByRegion(TimeFilterDto o) {
-        System.out.println("RRRRRRRRRRR "+o.toString());
-        return o+"asdsdsad";
+    public String getAnalysisByRegion(TimeFilterDto filterDto) {
+        System.out.println("QQQQQQQQQQQQQ");
+        Map<String, List<FeedbackEntity>> feedbacksByRegion = feedbacksStorageRepository.findDocumentsByRegion(filterDto.getInitDate(), filterDto.getFinalDate());
+        System.out.println("GGGGGGGGGG"+feedbacksByRegion);
+        return feedbacksByRegion.toString();
     }
 }

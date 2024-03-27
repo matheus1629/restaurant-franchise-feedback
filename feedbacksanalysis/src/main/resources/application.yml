@@ -5,9 +5,6 @@ spring:
   application:
     name: "feedbacksanalysis"
   cloud:
-    openfeign:
-      circuitbreaker:
-        enabled: true
     function:
       definition: receiveAnalysis
     stream:

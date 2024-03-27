@@ -10,7 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +28,7 @@ public class FeedbacksCollectorService {
         FeedbackStorageDto feedbackStorageDto = new FeedbackStorageDto(
                 feedbackDto.getAge(), feedbackDto.getGender(), feedbackDto.getRating(),
                 feedbackDto.getMealQuality(), feedbackDto.getWrongOrder(), feedbackDto.getWaitingTime(),
-                feedbackDto.getService(), feedbackDto.getAmbience(), new Date(), restaurantData.getIdRestaurant(),
+                feedbackDto.getService(), feedbackDto.getAmbience(), LocalDate.now().toString(), restaurantData.getIdRestaurant(),
                 restaurantData.getRegion(), restaurantData.getState(), restaurantData.getCity(), restaurantData.getCep()
         );
 

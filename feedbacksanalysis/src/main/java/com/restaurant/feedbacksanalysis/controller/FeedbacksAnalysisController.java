@@ -32,8 +32,8 @@ public class FeedbacksAnalysisController {
     )
     @ApiResponses({
             @ApiResponse(
-                    responseCode = "204",
-                    description = "HTTP Status No Content"
+                    responseCode = "200",
+                    description = "HTTP Status Ok"
             ),
             @ApiResponse(
                     responseCode = "422",
@@ -49,7 +49,7 @@ public class FeedbacksAnalysisController {
     @GetMapping("/region-analysis")
     public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
-        System.out.println(initDate + "  "+finalDate);
+
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
         return ResponseEntity.noContent().build();
     }

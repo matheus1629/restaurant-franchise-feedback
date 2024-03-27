@@ -12,8 +12,9 @@ public class FeedbacksAnalysisFunction {
 
     @Bean
     public Function<TimeFilterDto, String> analysisByRegion(FeedbacksStorageService feedbacksStorageService) {
-        return o -> {
-            String analysisByRegion = feedbacksStorageService.getAnalysisByRegion(o);
+        return filterDto -> {
+            System.out.println("SSSSSSSSSSSSSSSSS");
+            String analysisByRegion = feedbacksStorageService.getAnalysisByRegion(filterDto);
             return analysisByRegion;
 
         };

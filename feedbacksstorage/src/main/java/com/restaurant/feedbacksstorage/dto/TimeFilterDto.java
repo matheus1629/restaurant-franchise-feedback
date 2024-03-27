@@ -2,7 +2,7 @@ package com.restaurant.feedbacksstorage.dto;
 
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @Getter
@@ -12,6 +12,6 @@ import java.util.Date;
 @ToString
 public class TimeFilterDto {
 
-    private Date initDate;
-    private Date finalDate;
+    private LocalDate initDate;
+    private LocalDate finalDate;
 }
