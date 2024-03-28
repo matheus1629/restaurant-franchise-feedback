@@ -5,11 +5,10 @@ import lombok.*;
 import java.time.LocalDate;
 
 
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
 public class TimeFilterDto {
 
     private LocalDate initDate;

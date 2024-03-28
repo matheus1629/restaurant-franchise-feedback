@@ -42,8 +42,9 @@ public class FeedbacksStorageService {
 
     }
 
-    public String getAnalysisByRegion(TimeFilterDto filterDto) {
-        System.out.println("QQQQQQQQQQQQQ");
+    public String getAnalysisByRegion(String filterDto) {
+        System.out.println("QQQQQQQQQQQQQ" + filterDto);
+
         Map<String, List<FeedbackEntity>> feedbacksByRegion = feedbacksStorageRepository.findDocumentsByRegion(filterDto.getInitDate(), filterDto.getFinalDate());
         System.out.println("GGGGGGGGGG"+feedbacksByRegion);
         return feedbacksByRegion.toString();

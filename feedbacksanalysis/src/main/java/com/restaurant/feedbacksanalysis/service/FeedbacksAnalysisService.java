@@ -15,7 +15,7 @@ public class FeedbacksAnalysisService {
 
     public void getAnalysisByRegion(LocalDate initDate, LocalDate finalDate) {
         TimeFilterDto timeFilterDto = new TimeFilterDto(initDate, finalDate);
-        boolean result = streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto);
+        boolean result = streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto.toString());
 
     }
 }
