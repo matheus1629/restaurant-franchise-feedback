@@ -50,7 +50,12 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
 
+        if ((initDate != null && initDate.isAfter(LocalDate.now())) || finalDate != null && finalDate.isAfter(LocalDate.now())) {
+            return ResponseEntity.unprocessableEntity().body("The initial date and final date cannot be a future date.");
+        }
+// todo validate if finalDate is greater than initDate
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
         return ResponseEntity.noContent().build();
     }
+
 }

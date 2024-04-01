@@ -1,8 +1,5 @@
 package com.restaurant.feedbacksstorage.dto;
 
-import java.time.LocalDate;
-
-
 public record FeedbackStorageDto(Integer age, String gender, Integer rating, String mealQuality,
                                  Boolean wrongOrder, String waitingTime, String service, String ambience,
                                  String date, Integer idRestaurant, String region, String state,

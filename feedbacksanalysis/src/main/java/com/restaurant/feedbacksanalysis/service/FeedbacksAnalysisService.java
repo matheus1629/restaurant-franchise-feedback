@@ -14,8 +14,13 @@ public class FeedbacksAnalysisService {
     private final StreamBridge streamBridge;
 
     public void getAnalysisByRegion(LocalDate initDate, LocalDate finalDate) {
-        TimeFilterDto timeFilterDto = new TimeFilterDto(initDate, finalDate);
-        boolean result = streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto.toString());
+        if (initDate == null) initDate = LocalDate.of(1970, 1, 1);
+        if (finalDate == null) finalDate = LocalDate.now();
+
+
+        TimeFilterDto timeFilterDto = new TimeFilterDto(initDate.toString(), finalDate.toString());
+        boolean result = streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto);
+        System.out.println("RESULT" + result);
 
     }
 }

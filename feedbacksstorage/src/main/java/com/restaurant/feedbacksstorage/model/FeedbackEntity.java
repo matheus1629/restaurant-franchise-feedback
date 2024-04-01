@@ -2,16 +2,14 @@ package com.restaurant.feedbacksstorage.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
 @Document(collection = "feedbacks")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @Builder
 public class FeedbackEntity {

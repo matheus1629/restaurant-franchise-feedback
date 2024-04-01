@@ -11,9 +11,8 @@ import java.util.function.Function;
 public class FeedbacksAnalysisFunction {
 
     @Bean
-    public Function<String, String> analysisByRegion(FeedbacksStorageService feedbacksStorageService) {
+    public Function<TimeFilterDto, String> analysisByRegion(FeedbacksStorageService feedbacksStorageService) {
         return filterDto -> {
-            System.out.println("SSSSSSSSSSSSSSSSS");
             String analysisByRegion = feedbacksStorageService.getAnalysisByRegion(filterDto);
             return analysisByRegion;
 

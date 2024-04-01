@@ -15,8 +15,7 @@ public interface FeedbacksStorageRepository extends MongoRepository<FeedbackEnti
     List<FeedbackEntity> findByDateBetween(LocalDate initDate, LocalDate finalDate);
 
     default Map<String, List<FeedbackEntity>> findDocumentsByRegion(LocalDate initDate, LocalDate finalDate) {
-        List<FeedbackEntity> documentos = findByDateBetween(initDate != null ? initDate : LocalDate.of(1970, 1, 1),
-                finalDate != null ? finalDate : LocalDate.now());
+        List<FeedbackEntity> documentos = findByDateBetween(initDate, finalDate);
         return documentos.stream().collect(Collectors.groupingBy(FeedbackEntity::getRegion));
     }
 }
