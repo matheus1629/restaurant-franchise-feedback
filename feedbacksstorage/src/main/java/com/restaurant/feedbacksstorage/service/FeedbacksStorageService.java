@@ -2,17 +2,18 @@ package com.restaurant.feedbacksstorage.service;
 
 import com.restaurant.feedbacksstorage.dto.FeedbackStorageDto;
 import com.restaurant.feedbacksstorage.dto.RegionAnalysisDto;
+import com.restaurant.feedbacksstorage.dto.StatisticCategory;
 import com.restaurant.feedbacksstorage.dto.TimeFilterDto;
+import com.restaurant.feedbacksstorage.enums.Gender;
+import com.restaurant.feedbacksstorage.enums.LevelSatisfaction;
 import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
+import com.restaurant.feedbacksstorage.util.DataStatistics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -45,7 +46,7 @@ public class FeedbacksStorageService {
 
     }
 
-    public String getAnalysisByRegion(TimeFilterDto filterDto) {
+    public RegionAnalysisDto getAnalysisByRegion(TimeFilterDto filterDto) {
         Map<String, List<FeedbackEntity>> feedbacksByRegion = feedbacksStorageRepository.findDocumentsByRegion(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
         RegionAnalysisDto regionAnalysisDto = new RegionAnalysisDto();
 
@@ -53,9 +54,7 @@ public class FeedbacksStorageService {
             String region = entry.getKey();
             List<FeedbackEntity> feedbacks = entry.getValue();
 
-            System.out.println("Chave: " + region);
-            System.out.println("Valores:");
-            Map<String, String> analysisData = null;
+            Map<Enum, String> analysisData = new HashMap<>();
 
             List<Integer> age = new ArrayList<>();
             List<String> gender = new ArrayList<>();
@@ -65,8 +64,6 @@ public class FeedbacksStorageService {
             List<String> waitingTime = new ArrayList<>();
             List<String> service = new ArrayList<>();
             List<String> ambience = new ArrayList<>();
-
-            Map<String, List<?>> feedBacksData = new HashMap<>();
 
             for (FeedbackEntity feedback : feedbacks) {
                 age.add(feedback.getAge());
@@ -79,18 +76,29 @@ public class FeedbacksStorageService {
                 ambience.add(feedback.getAmbience());
             }
 
-            System.out.println("JJJJJ" + feedBacksData);
+            EnumMap<Gender, String> genderStatisticMap = DataStatistics.statisticsDataEnum(gender, Gender.class);
+            EnumMap<LevelSatisfaction, String> mealQualityStatisticMap = DataStatistics.statisticsDataEnum(mealQuality, LevelSatisfaction.class);
+            Map<Boolean, String> wrongOrderStatisticMap = DataStatistics.statisticDataBoolean(wrongOrder, "WrongOrder");
+
+            StatisticCategory statisticCategory = StatisticCategory.builder()
+                    .genderStatistic(genderStatisticMap)
+                    .mealQuality(mealQualityStatisticMap)
+                    .wrongOrder(wrongOrderStatisticMap)
+                    .build();
+
 
             switch (region) {
-                case "south" -> regionAnalysisDto.setSouth(analysisData);
-                case "southeast" -> regionAnalysisDto.setSoutheast(analysisData);
-                case "midwest" -> regionAnalysisDto.setMidwest(analysisData);
-                case "northeast" -> regionAnalysisDto.setNortheast(analysisData);
-                case "north" -> regionAnalysisDto.setNorth(analysisData);
+                case "south" -> regionAnalysisDto.setSouth(statisticCategory);
+                case "southeast" -> regionAnalysisDto.setSoutheast(statisticCategory);
+                case "midwest" -> regionAnalysisDto.setMidwest(statisticCategory);
+                case "northeast" -> regionAnalysisDto.setNortheast(statisticCategory);
+                case "north" -> regionAnalysisDto.setNorth(statisticCategory);
             }
 
         }
 
-        return feedbacksByRegion.toString();
+        System.out.println("DDDD " + regionAnalysisDto);
+
+        return regionAnalysisDto;
     }
 }
