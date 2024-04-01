@@ -8,12 +8,14 @@ import com.restaurant.feedbacksstorage.enums.Gender;
 import com.restaurant.feedbacksstorage.enums.LevelSatisfaction;
 import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
-import com.restaurant.feedbacksstorage.util.DataStatistics;
+import com.restaurant.feedbacksstorage.util.StatisticsCalculator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -54,36 +56,35 @@ public class FeedbacksStorageService {
             String region = entry.getKey();
             List<FeedbackEntity> feedbacks = entry.getValue();
 
-            Map<Enum, String> analysisData = new HashMap<>();
-
-            List<Integer> age = new ArrayList<>();
-            List<String> gender = new ArrayList<>();
-            List<Integer> rating = new ArrayList<>();
-            List<String> mealQuality = new ArrayList<>();
-            List<Boolean> wrongOrder = new ArrayList<>();
-            List<String> waitingTime = new ArrayList<>();
-            List<String> service = new ArrayList<>();
-            List<String> ambience = new ArrayList<>();
+            List<Integer> ageList = new ArrayList<>();
+            List<String> genderList = new ArrayList<>();
+            List<Integer> ratingList = new ArrayList<>();
+            List<String> mealQualityList = new ArrayList<>();
+            List<Boolean> wrongOrderList = new ArrayList<>();
+            List<String> waitingTimeList = new ArrayList<>();
+            List<String> serviceList = new ArrayList<>();
+            List<String> ambienceList = new ArrayList<>();
 
             for (FeedbackEntity feedback : feedbacks) {
-                age.add(feedback.getAge());
-                gender.add(feedback.getGender());
-                rating.add(feedback.getRating());
-                mealQuality.add(feedback.getMealQuality());
-                wrongOrder.add(feedback.getWrongOrder());
-                waitingTime.add(feedback.getWaitingTime());
-                service.add(feedback.getService());
-                ambience.add(feedback.getAmbience());
+                ageList.add(feedback.getAge());
+                genderList.add(feedback.getGender());
+                ratingList.add(feedback.getRating());
+                mealQualityList.add(feedback.getMealQuality());
+                wrongOrderList.add(feedback.getWrongOrder());
+                waitingTimeList.add(feedback.getWaitingTime());
+                serviceList.add(feedback.getService());
+                ambienceList.add(feedback.getAmbience());
             }
 
-            EnumMap<Gender, String> genderStatisticMap = DataStatistics.statisticsDataEnum(gender, Gender.class);
-            EnumMap<LevelSatisfaction, String> mealQualityStatisticMap = DataStatistics.statisticsDataEnum(mealQuality, LevelSatisfaction.class);
-            Map<Boolean, String> wrongOrderStatisticMap = DataStatistics.statisticDataBoolean(wrongOrder, "WrongOrder");
-
             StatisticCategory statisticCategory = StatisticCategory.builder()
-                    .genderStatistic(genderStatisticMap)
-                    .mealQuality(mealQualityStatisticMap)
-                    .wrongOrder(wrongOrderStatisticMap)
+                    .ageStatistic(StatisticsCalculator.statisticDataAge(ageList))
+                    .genderStatistic(StatisticsCalculator.statisticsDataEnum(genderList, Gender.class))
+                    .ratingStatistic(StatisticsCalculator.statisticDataRating(ratingList))
+                    .mealQualityStatistic(StatisticsCalculator.statisticsDataEnum(mealQualityList, LevelSatisfaction.class))
+                    .wrongOrderStatistic(StatisticsCalculator.statisticDataBoolean(wrongOrderList))
+                    .waitingTimeStatistic(StatisticsCalculator.statisticsDataEnum(waitingTimeList, LevelSatisfaction.class))
+                    .serviceStatistic(StatisticsCalculator.statisticsDataEnum(serviceList, LevelSatisfaction.class))
+                    .ambienceStatistic(StatisticsCalculator.statisticsDataEnum(ambienceList, LevelSatisfaction.class))
                     .build();
 
 

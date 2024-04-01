@@ -14,13 +14,13 @@ import java.util.Map;
 @Data
 @Builder
 public class StatisticCategory {
-    private Map<Enum, String> ageStatistic;
+    private Map<String, String> ageStatistic;
     private Map<Gender, String> genderStatistic;
-    private Map<Enum, String> rating;
-    private Map<LevelSatisfaction, String> mealQuality;
-    private Map<Boolean, String> wrongOrder;
-    private Map<LevelSatisfaction, String> waitingTime;
-    private Map<LevelSatisfaction, String> service;
-    private Map<LevelSatisfaction, String> ambience;
+    private Map<String, String> ratingStatistic;
+    private Map<LevelSatisfaction, String> mealQualityStatistic;
+    private Map<Boolean, String> wrongOrderStatistic;
+    private Map<LevelSatisfaction, String> waitingTimeStatistic;
+    private Map<LevelSatisfaction, String> serviceStatistic;
+    private Map<LevelSatisfaction, String> ambienceStatistic;
 
 }
