@@ -13,10 +13,6 @@ public class FeedbacksAnalysisFunction {
 
     @Bean
     public Function<TimeFilterDto, RegionAnalysisDto> analysisByRegion(FeedbacksStorageService feedbacksStorageService) {
-        return filterDto -> {
-            RegionAnalysisDto analysisByRegion = feedbacksStorageService.getAnalysisByRegion(filterDto);
-            return analysisByRegion;
-
-        };
+        return filterDto -> feedbacksStorageService.getAnalysisByRegion(filterDto);
     }
 }

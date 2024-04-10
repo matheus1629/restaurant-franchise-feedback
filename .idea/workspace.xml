@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="restaurant and feedbacks seeders">
-      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/util/StatisticsCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/RegionAnalysisDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/StatisticCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/StatisticCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/StatisticCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/util/DataStatistics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksAnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksAnalysisFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage",
+    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,10 +98,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalysis\src\main\java\com\restaurant\feedbacksanalysis" />
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksstorage\src\main\java\com\restaurant\feedbacksstorage" />
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalyzer\src\main\java\com\restaurant\feedbacksanalyzer" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.restaurant.feedbacksanalysis.dto" />
       <recent name="com.restaurant.feedbacksstorage.dto" />
       <recent name="com.restaurant.feedbacksstorage.model" />
       <recent name="com.restaurant.feedbacksanalyzer.dto" />
@@ -181,7 +185,9 @@
       <workItem from="1711454995995" duration="22225000" />
       <workItem from="1711542360422" duration="20582000" />
       <workItem from="1711627513120" duration="19677000" />
-      <workItem from="1711973281458" duration="19592000" />
+      <workItem from="1711973281458" duration="20574000" />
+      <workItem from="1712235283390" duration="234000" />
+      <workItem from="1712760238525" duration="3563000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />

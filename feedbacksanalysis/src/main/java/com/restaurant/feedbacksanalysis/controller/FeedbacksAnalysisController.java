@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -47,12 +48,10 @@ public class FeedbacksAnalysisController {
     }
     )
     @GetMapping("/region-analysis")
-    public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
-                                               @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
+    public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
+                                               @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
 
-        if ((initDate != null && initDate.isAfter(LocalDate.now())) || finalDate != null && finalDate.isAfter(LocalDate.now())) {
-            return ResponseEntity.unprocessableEntity().body("The initial date and final date cannot be a future date.");
-        }
+
 // todo validate if finalDate is greater than initDate
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
         return ResponseEntity.noContent().build();
