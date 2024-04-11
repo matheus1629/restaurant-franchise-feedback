@@ -1,5 +1,6 @@
 package com.restaurant.feedbacksanalysis.service;
 
+import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.TimeFilterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -12,6 +13,15 @@ import java.time.LocalDate;
 public class FeedbacksAnalysisService {
 
     private final StreamBridge streamBridge;
+    private RegionAnalysisCallback callback;
+
+    public void setCallback(RegionAnalysisCallback callback) {
+        this.callback = callback;
+    }
+
+    public RegionAnalysisCallback getCallback() {
+        return this.callback;
+    }
 
     public void getAnalysisByRegion(LocalDate initDate, LocalDate finalDate) {
         if (initDate == null) initDate = LocalDate.of(1970, 1, 1);

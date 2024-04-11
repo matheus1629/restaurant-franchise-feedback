@@ -1,5 +1,7 @@
 package com.restaurant.feedbacksanalysis.controller;
 
+import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
+import com.restaurant.feedbacksanalysis.exception.BusinessRuleException;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -16,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -37,8 +43,8 @@ public class FeedbacksAnalysisController {
                     description = "HTTP Status Ok"
             ),
             @ApiResponse(
-                    responseCode = "422",
-                    description = "HTTP Status Unprocessable Entity"
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request"
             )
             ,
             @ApiResponse(
@@ -48,13 +54,20 @@ public class FeedbacksAnalysisController {
     }
     )
     @GetMapping("/region-analysis")
-    public ResponseEntity<Object> sendFeedback(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
-                                               @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) {
+    public ResponseEntity<RegionAnalysisDto> feedbackAnalysisByRegion(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
+                                                                      @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
+        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate)) throw new BusinessRuleException("initial date cannot be greater than finaldate");
 
-// todo validate if finalDate is greater than initDate
+        CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
+
+        feedbacksAnalysisService.setCallback(future::complete);
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
-        return ResponseEntity.noContent().build();
+
+
+        RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
+        return ResponseEntity.ok(regionAnalysisDto);
+
     }
 
 }

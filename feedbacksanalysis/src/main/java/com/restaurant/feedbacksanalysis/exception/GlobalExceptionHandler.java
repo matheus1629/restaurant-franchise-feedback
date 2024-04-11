@@ -16,6 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.*;
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
@@ -82,6 +83,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return ResponseEntity.badRequest().body(body);
     }
+
+    @ExceptionHandler(TimeoutException.class)
+    protected ResponseEntity<Object> handleTimeout(
+            TimeoutException ex, WebRequest request) {
+
+        String error = "The request exceeded the maximum allowed time of 5 seconds.";
+
+        Map<String, Object> body = createResponseBody(HttpStatus.REQUEST_TIMEOUT, error);
+
+        return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).body(body);
+    }
+
+    @ExceptionHandler(BusinessRuleException.class)
+    public ResponseEntity<Object> handleException(BusinessRuleException exception) {
+
+        Map<String, Object> body = createResponseBody(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+
 
     private Map<String, Object> createResponseBody(HttpStatus status, String message) {
         Map<String, Object> body = new LinkedHashMap<>();
