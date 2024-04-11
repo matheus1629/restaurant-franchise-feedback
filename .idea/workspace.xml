@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="restaurant and feedbacks seeders">
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/BusinessRuleException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/RegionAnalysisCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederFeedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +186,7 @@
       <workItem from="1711973281458" duration="20574000" />
       <workItem from="1712235283390" duration="234000" />
       <workItem from="1712760238525" duration="8825000" />
-      <workItem from="1712837457929" duration="3516000" />
+      <workItem from="1712837457929" duration="8551000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />

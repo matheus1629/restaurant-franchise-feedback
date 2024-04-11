@@ -45,8 +45,11 @@ public class FeedbacksAnalysisController {
             @ApiResponse(
                     responseCode = "400",
                     description = "HTTP Status Bad Request"
-            )
-            ,
+            ),
+            @ApiResponse(
+                    responseCode = "408",
+                    description = "HTTP Status Request Timeout"
+            ),
             @ApiResponse(
                     responseCode = "500",
                     description = "HTTP Status Internal Server Error"
@@ -57,7 +60,8 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<RegionAnalysisDto> feedbackAnalysisByRegion(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                                       @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
-        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate)) throw new BusinessRuleException("initial date cannot be greater than finaldate");
+        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate))
+            throw new BusinessRuleException("initial date cannot be greater than finaldate");
 
         CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
 
@@ -66,6 +70,7 @@ public class FeedbacksAnalysisController {
 
 
         RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
+        System.out.println(regionAnalysisDto);
         return ResponseEntity.ok(regionAnalysisDto);
 
     }

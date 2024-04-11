@@ -33,7 +33,6 @@ public class FeedbacksCollectorService {
         );
 
         boolean result = streamBridge.send(channel, feedbackStorageDto);
-
         if (!result) throw new MessageSendFailedException("Fail to send message to channel: " + channel);
     }
 

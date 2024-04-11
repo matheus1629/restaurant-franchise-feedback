@@ -35,12 +35,13 @@ public class DatabaseSeederFeedback {
     }
 
     public static LocalDate generateRandomDate() {
-        long startMillis = 1609459200000L; // 01/01/2021 00:00:00 GMT
-        long endMillis = 1714675199000L; // 31/03/2024 23:59:59 GMT
-        long randomMillisSinceEpoch = ThreadLocalRandom.current().nextLong(startMillis, endMillis);
+        long startEpochDay = LocalDate.of(2021, 1, 1).toEpochDay(); // 01/01/2021
+        long endEpochDay = LocalDate.of(2024, 3, 31).toEpochDay(); // 31/03/2024
+        long randomDay = ThreadLocalRandom.current().nextLong(startEpochDay, endEpochDay);
 
-        return LocalDate.from(Instant.ofEpochMilli(randomMillisSinceEpoch));
+        return LocalDate.ofEpochDay(randomDay);
     }
+
 
     @Bean
     @DependsOn("initRestaurantsDocuments")
