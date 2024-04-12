@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 public class StatisticsCalculator {
-
+// todo results are not always exactly the same
     private static DecimalFormat df = new DecimalFormat("#.##");
 
     public static <E extends Enum<E>> EnumMap<E, String> statisticsDataEnum(List<?> feedbacksData, Class<E> enumType) {
