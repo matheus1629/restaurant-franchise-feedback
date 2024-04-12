@@ -1,11 +1,9 @@
 package com.restaurant.feedbacksstorage.service;
 
-import com.restaurant.feedbacksstorage.dto.FeedbackStorageDto;
-import com.restaurant.feedbacksstorage.dto.RegionAnalysisDto;
-import com.restaurant.feedbacksstorage.dto.StatisticCategory;
-import com.restaurant.feedbacksstorage.dto.TimeFilterDto;
+import com.restaurant.feedbacksstorage.dto.*;
 import com.restaurant.feedbacksstorage.enums.Gender;
 import com.restaurant.feedbacksstorage.enums.LevelSatisfaction;
+import com.restaurant.feedbacksstorage.enums.Region;
 import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
 import com.restaurant.feedbacksstorage.util.StatisticsCalculator;
@@ -76,7 +74,7 @@ public class FeedbacksStorageService {
                 ambienceList.add(feedback.getAmbience());
             }
 
-            StatisticCategory statisticCategory = StatisticCategory.builder()
+            StatisticRegionCategory statisticRegionCategory = StatisticRegionCategory.builder()
                     .ageStatistic(StatisticsCalculator.statisticDataAge(ageList))
                     .genderStatistic(StatisticsCalculator.statisticsDataEnum(genderList, Gender.class))
                     .ratingStatistic(StatisticsCalculator.statisticDataRating(ratingList))
@@ -89,17 +87,68 @@ public class FeedbacksStorageService {
 
 
             switch (region) {
-                case "south" -> regionAnalysisDto.setSouth(statisticCategory);
-                case "southeast" -> regionAnalysisDto.setSoutheast(statisticCategory);
-                case "midwest" -> regionAnalysisDto.setMidwest(statisticCategory);
-                case "northeast" -> regionAnalysisDto.setNortheast(statisticCategory);
-                case "north" -> regionAnalysisDto.setNorth(statisticCategory);
+                case "SOUTH" -> regionAnalysisDto.setSouth(statisticRegionCategory);
+                case "SOUTHEAST" -> regionAnalysisDto.setSoutheast(statisticRegionCategory);
+                case "MIDWEST" -> regionAnalysisDto.setMidwest(statisticRegionCategory);
+                case "NORTHEAST" -> regionAnalysisDto.setNortheast(statisticRegionCategory);
+                case "NORTH" -> regionAnalysisDto.setNorth(statisticRegionCategory);
             }
 
         }
 
-        System.out.println("DDDD " + regionAnalysisDto);
-
         return regionAnalysisDto;
+    }
+
+    public AgeGroupAnalysisDto getAnalysisByAgeGroup(TimeFilterDto filterDto) {
+        Map<String, List<FeedbackEntity>> feedbacksByAgeGroup = feedbacksStorageRepository.findDocumentsByAgeGroup(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
+        AgeGroupAnalysisDto ageGroupAnalysisDto = new AgeGroupAnalysisDto();
+
+        for (Map.Entry<String, List<FeedbackEntity>> entry : feedbacksByAgeGroup.entrySet()) {
+            String ageGroup = entry.getKey();
+            List<FeedbackEntity> feedbacks = entry.getValue();
+
+            List<String> regionList = new ArrayList<>();
+            List<String> genderList = new ArrayList<>();
+            List<Integer> ratingList = new ArrayList<>();
+            List<String> mealQualityList = new ArrayList<>();
+            List<Boolean> wrongOrderList = new ArrayList<>();
+            List<String> waitingTimeList = new ArrayList<>();
+            List<String> serviceList = new ArrayList<>();
+            List<String> ambienceList = new ArrayList<>();
+
+            for (FeedbackEntity feedback : feedbacks) {
+                regionList.add(feedback.getRegion());
+                genderList.add(feedback.getGender());
+                ratingList.add(feedback.getRating());
+                mealQualityList.add(feedback.getMealQuality());
+                wrongOrderList.add(feedback.getWrongOrder());
+                waitingTimeList.add(feedback.getWaitingTime());
+                serviceList.add(feedback.getService());
+                ambienceList.add(feedback.getAmbience());
+            }
+
+            StatisticAgeGroupCategory statisticAgeGroupCategory = StatisticAgeGroupCategory.builder()
+                    .regionStatistic(StatisticsCalculator.statisticsDataEnum(regionList, Region.class))
+                    .genderStatistic(StatisticsCalculator.statisticsDataEnum(genderList, Gender.class))
+                    .ratingStatistic(StatisticsCalculator.statisticDataRating(ratingList))
+                    .mealQualityStatistic(StatisticsCalculator.statisticsDataEnum(mealQualityList, LevelSatisfaction.class))
+                    .wrongOrderStatistic(StatisticsCalculator.statisticDataBoolean(wrongOrderList))
+                    .waitingTimeStatistic(StatisticsCalculator.statisticsDataEnum(waitingTimeList, LevelSatisfaction.class))
+                    .serviceStatistic(StatisticsCalculator.statisticsDataEnum(serviceList, LevelSatisfaction.class))
+                    .ambienceStatistic(StatisticsCalculator.statisticsDataEnum(ambienceList, LevelSatisfaction.class))
+                    .build();
+
+
+            switch (ageGroup) {
+                case "ageGroup16To24" -> ageGroupAnalysisDto.setAgeGroup16To24(statisticAgeGroupCategory);
+                case "ageGroup25To35" -> ageGroupAnalysisDto.setAgeGroup25To35(statisticAgeGroupCategory);
+                case "ageGroup36To50" -> ageGroupAnalysisDto.setAgeGroup36To50(statisticAgeGroupCategory);
+                case "ageGroup51To70" -> ageGroupAnalysisDto.setAgeGroup51To70(statisticAgeGroupCategory);
+                case "ageGroup71To110" -> ageGroupAnalysisDto.setAgeGroup71To110(statisticAgeGroupCategory);
+            }
+
+        }
+
+        return ageGroupAnalysisDto;
     }
 }

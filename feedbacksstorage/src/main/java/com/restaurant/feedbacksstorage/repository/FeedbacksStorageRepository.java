@@ -18,4 +18,16 @@ public interface FeedbacksStorageRepository extends MongoRepository<FeedbackEnti
         List<FeedbackEntity> documents = findByDateBetween(initDate, finalDate);
         return documents.stream().collect(Collectors.groupingBy(FeedbackEntity::getRegion));
     }
+
+    default Map<String, List<FeedbackEntity>> findDocumentsByAgeGroup(LocalDate initDate, LocalDate finalDate) {
+        List<FeedbackEntity> documents = findByDateBetween(initDate, finalDate);
+        return documents.stream().collect(Collectors.groupingBy(feedback -> {
+            int age = feedback.getAge();
+            if (age <= 24) return "ageGroup16To24";
+            else if (age <= 35) return "ageGroup25To35";
+            else if (age <= 50) return "ageGroup36To50";
+            else if (age <= 70) return "ageGroup51To70";
+            else return "ageGroup71To110";
+        }));
+    }
 }

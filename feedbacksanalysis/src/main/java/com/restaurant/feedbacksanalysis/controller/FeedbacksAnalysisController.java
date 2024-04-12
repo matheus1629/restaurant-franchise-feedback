@@ -1,5 +1,6 @@
 package com.restaurant.feedbacksanalysis.controller;
 
+import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.exception.BusinessRuleException;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
@@ -65,13 +66,55 @@ public class FeedbacksAnalysisController {
 
         CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
 
-        feedbacksAnalysisService.setCallback(future::complete);
+        feedbacksAnalysisService.setRegionAnalysisCallback(future::complete);
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
 
 
         RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
         System.out.println(regionAnalysisDto);
         return ResponseEntity.ok(regionAnalysisDto);
+
+    }
+
+    @Operation(
+            summary = "Get Feedbacks Analysis by Region",
+            description = "Create analysis from feedbacks storage in feedbacksstorage microsservice given selected parameters"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status Ok"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request"
+            ),
+            @ApiResponse(
+                    responseCode = "408",
+                    description = "HTTP Status Request Timeout"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error"
+            )
+    }
+    )
+    @GetMapping("/age-group-analysis")
+    public ResponseEntity<AgeGroupAnalysisDto> feedbackAnalysisByAgeGroup(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
+                                                                          @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
+
+        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate))
+            throw new BusinessRuleException("initial date cannot be greater than finaldate");
+
+        CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
+
+        feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
+        feedbacksAnalysisService.getAnalysisByAgeGroup(initDate, finalDate);
+
+
+        AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
+        System.out.println(ageGroupAnalysisDto);
+        return ResponseEntity.ok(ageGroupAnalysisDto);
 
     }
 

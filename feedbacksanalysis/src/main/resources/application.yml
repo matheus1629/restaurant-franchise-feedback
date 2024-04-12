@@ -6,14 +6,19 @@ spring:
     name: "feedbacksanalysis"
   cloud:
     function:
-      definition: receiveAnalysis
+      definition: receiveAnalysis;receiveAnalysisAgeGroup
     stream:
       bindings:
         receiveAnalysis-in-0:
           destination: receive-analysis
           group: ${spring.application.name}
+        receiveAnalysisAgeGroup-in-0:
+          destination: receive-analysis-age-group
+          group: ${spring.application.name}
         requestAnalysisByRegion-out-0:
           destination: request-analysis-by-region
+        requestAnalysisByAgeGroup-out-0:
+          destination: request-analysis-by-age-group
       kafka:
         binder:
           brokers:

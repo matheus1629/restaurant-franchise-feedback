@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class RegionAnalysisDto {
-    private StatisticCategory south;
-    private StatisticCategory southeast;
-    private StatisticCategory midwest;
-    private StatisticCategory northeast;
-    private StatisticCategory north;
+    private StatisticRegionCategory south;
+    private StatisticRegionCategory southeast;
+    private StatisticRegionCategory midwest;
+    private StatisticRegionCategory northeast;
+    private StatisticRegionCategory north;
 }
 
