@@ -21,6 +21,17 @@ public class FeedbacksStorageService {
 
     private final FeedbacksStorageRepository feedbacksStorageRepository;
 
+    private List<FeedbackEntity> feedbacks;
+    private List<Integer> ageList = new ArrayList<>();
+    private List<String> regionList = new ArrayList<>();
+    private List<String> genderList = new ArrayList<>();
+    private List<Integer> ratingList = new ArrayList<>();
+    private List<String> mealQualityList = new ArrayList<>();
+    private List<Boolean> wrongOrderList = new ArrayList<>();
+    private List<String> waitingTimeList = new ArrayList<>();
+    private List<String> serviceList = new ArrayList<>();
+    private List<String> ambienceList = new ArrayList<>();
+
     public void saveFeedback(FeedbackStorageDto feedbackStorageDto) {
 
         FeedbackEntity feedbackEntity = FeedbackEntity.builder()
@@ -52,16 +63,8 @@ public class FeedbacksStorageService {
 
         for (Map.Entry<String, List<FeedbackEntity>> entry : feedbacksByRegion.entrySet()) {
             String region = entry.getKey();
-            List<FeedbackEntity> feedbacks = entry.getValue();
+            feedbacks = entry.getValue();
 
-            List<Integer> ageList = new ArrayList<>();
-            List<String> genderList = new ArrayList<>();
-            List<Integer> ratingList = new ArrayList<>();
-            List<String> mealQualityList = new ArrayList<>();
-            List<Boolean> wrongOrderList = new ArrayList<>();
-            List<String> waitingTimeList = new ArrayList<>();
-            List<String> serviceList = new ArrayList<>();
-            List<String> ambienceList = new ArrayList<>();
 
             for (FeedbackEntity feedback : feedbacks) {
                 ageList.add(feedback.getAge());
@@ -105,16 +108,8 @@ public class FeedbacksStorageService {
 
         for (Map.Entry<String, List<FeedbackEntity>> entry : feedbacksByAgeGroup.entrySet()) {
             String ageGroup = entry.getKey();
-            List<FeedbackEntity> feedbacks = entry.getValue();
+            feedbacks = entry.getValue();
 
-            List<String> regionList = new ArrayList<>();
-            List<String> genderList = new ArrayList<>();
-            List<Integer> ratingList = new ArrayList<>();
-            List<String> mealQualityList = new ArrayList<>();
-            List<Boolean> wrongOrderList = new ArrayList<>();
-            List<String> waitingTimeList = new ArrayList<>();
-            List<String> serviceList = new ArrayList<>();
-            List<String> ambienceList = new ArrayList<>();
 
             for (FeedbackEntity feedback : feedbacks) {
                 regionList.add(feedback.getRegion());
