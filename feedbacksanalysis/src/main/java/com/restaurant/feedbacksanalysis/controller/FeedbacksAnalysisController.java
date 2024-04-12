@@ -4,6 +4,7 @@ import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.exception.BusinessRuleException;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
+import com.restaurant.feedbacksanalysis.validators.DateValidator;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -36,7 +37,7 @@ public class FeedbacksAnalysisController {
 
     @Operation(
             summary = "Get Feedbacks Analysis by Region",
-            description = "Create analysis from feedbacks storage in feedbacksstorage microsservice given selected parameters"
+            description = "Get analysis by region from feedbacksstorage microsservice"
     )
     @ApiResponses({
             @ApiResponse(
@@ -61,24 +62,21 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<RegionAnalysisDto> feedbackAnalysisByRegion(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                                       @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
-        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate))
-            throw new BusinessRuleException("initial date cannot be greater than finaldate");
+        DateValidator.validateDateFilter(initDate, finalDate);
 
         CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setRegionAnalysisCallback(future::complete);
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
 
-
         RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
-        System.out.println(regionAnalysisDto);
-        return ResponseEntity.ok(regionAnalysisDto);
 
+        return ResponseEntity.ok(regionAnalysisDto);
     }
 
     @Operation(
-            summary = "Get Feedbacks Analysis by Region",
-            description = "Create analysis from feedbacks storage in feedbacksstorage microsservice given selected parameters"
+            summary = "Get Feedbacks Analysis by Age Group",
+            description = "Get analysis by age group from feedbacksstorage microsservice"
     )
     @ApiResponses({
             @ApiResponse(
@@ -103,19 +101,55 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<AgeGroupAnalysisDto> feedbackAnalysisByAgeGroup(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                                           @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
-        if ((initDate != null && finalDate != null) && initDate.isAfter(finalDate))
-            throw new BusinessRuleException("initial date cannot be greater than finaldate");
+        DateValidator.validateDateFilter(initDate, finalDate);
 
         CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
         feedbacksAnalysisService.getAnalysisByAgeGroup(initDate, finalDate);
 
+        AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
+
+        return ResponseEntity.ok(ageGroupAnalysisDto);
+    }
+
+    @Operation(
+            summary = "Get Custom Feedbacks Analysis",
+            description = "Get custom analysis from feedbacksstorage microsservice given selected parameters"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status Ok"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request"
+            ),
+            @ApiResponse(
+                    responseCode = "408",
+                    description = "HTTP Status Request Timeout"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error"
+            )
+    }
+    )
+    @GetMapping("/custom-analysis")
+    public ResponseEntity<AgeGroupAnalysisDto> customFeedbackAnalysis(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
+                                                                      @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
+
+        DateValidator.validateDateFilter(initDate, finalDate);
+
+        CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
+
+        feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
+        feedbacksAnalysisService.getAnalysisByAgeGroup(initDate, finalDate);
 
         AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
-        System.out.println(ageGroupAnalysisDto);
-        return ResponseEntity.ok(ageGroupAnalysisDto);
 
+        return ResponseEntity.ok(ageGroupAnalysisDto);
     }
 
 }
