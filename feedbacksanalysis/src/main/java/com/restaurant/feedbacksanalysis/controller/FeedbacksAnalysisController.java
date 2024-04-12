@@ -1,8 +1,8 @@
 package com.restaurant.feedbacksanalysis.controller;
 
 import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
+import com.restaurant.feedbacksanalysis.dto.FeedbackAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
-import com.restaurant.feedbacksanalysis.exception.BusinessRuleException;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import com.restaurant.feedbacksanalysis.validators.DateValidator;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,10 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.concurrent.CompletableFuture;
@@ -34,6 +31,7 @@ public class FeedbacksAnalysisController {
 
 
     private final FeedbacksAnalysisService feedbacksAnalysisService;
+
 
     @Operation(
             summary = "Get Feedbacks Analysis by Region",
@@ -138,7 +136,9 @@ public class FeedbacksAnalysisController {
     )
     @GetMapping("/custom-analysis")
     public ResponseEntity<AgeGroupAnalysisDto> customFeedbackAnalysis(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
-                                                                      @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
+                                                                      @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate,
+                                                                      @ModelAttribute FeedbackAnalysisFilterDto feedbackAnalysisFilterDto
+    ) throws ExecutionException, InterruptedException, TimeoutException {
 
         DateValidator.validateDateFilter(initDate, finalDate);
 
