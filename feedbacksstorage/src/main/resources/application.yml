@@ -24,7 +24,7 @@ spring:
           destination: request-analysis-by-age-group
           group: ${spring.application.name}
         analysisByRegion-out-0:
-          destination: receive-analysis
+          destination: receive-analysis-by-region
         requestAnalysisByAgeGroup-out-0:
           destination: receive-analysis-age-group
       kafka:

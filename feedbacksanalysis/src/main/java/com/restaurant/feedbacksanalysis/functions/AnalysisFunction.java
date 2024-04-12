@@ -17,7 +17,7 @@ public class AnalysisFunction {
     private final FeedbacksAnalysisService feedbacksAnalysisService;
 
     @Bean
-    public Consumer<RegionAnalysisDto> receiveAnalysis() {
+    public Consumer<RegionAnalysisDto> receiveAnalysisByRegion() {
         return regionAnalysisDto -> feedbacksAnalysisService.getRegionAnalysisCallback().onResult(regionAnalysisDto);
     }
 
