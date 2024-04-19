@@ -146,4 +146,8 @@ public class FeedbacksStorageService {
 
         return ageGroupAnalysisDto;
     }
+
+    public AgeGroupAnalysisDto getCustomAnalysis(TimeFilterDto filterDto){
+return null;
+    }
 }

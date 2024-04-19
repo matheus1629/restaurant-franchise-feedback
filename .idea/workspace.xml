@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="restaurant and feedbacks seeders">
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/AgeGroupAnalysisDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/StatisticAgeGroupCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/callbacks/RegionAnalysisCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/AgeGroupAnalysisDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/StatisticAgeGroupCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/enums/Region.java" afterDir="false" />
+    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
+      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/CustomAnalysisDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/RegionAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/RegionAnalysisDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/StatisticCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/StatisticRegionCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/functions/AnalysisFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/FeedbackAnalysisFilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/CustomAnalysisFilterDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/RegionAnalysisCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/callbacks/AgeGroupAnalysisCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/RegionAnalysisDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/RegionAnalysisDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/StatisticCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/dto/StatisticRegionCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksAnalysisFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/functions/FeedbacksAnalysisFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/init/DatabaseSeederRestaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/repository/FeedbacksStorageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/resources/application.yml" afterDir="false" />
     </list>
@@ -56,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -119,11 +107,11 @@
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalyzer\src\main\java\com\restaurant\feedbacksanalyzer" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.restaurant.feedbacksanalysis.dto" />
+      <recent name="com.restaurant.feedbacksanalysis.enums" />
       <recent name="com.restaurant.feedbacksstorage.enums" />
       <recent name="com.restaurant.feedbacksanalysis.service.callbacks" />
-      <recent name="com.restaurant.feedbacksanalysis.dto" />
       <recent name="com.restaurant.feedbacksanalysis.exception" />
-      <recent name="com.restaurant.feedbacksstorage.dto" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -205,7 +193,8 @@
       <workItem from="1712235283390" duration="234000" />
       <workItem from="1712760238525" duration="8825000" />
       <workItem from="1712837457929" duration="14414000" />
-      <workItem from="1712924501225" duration="5083000" />
+      <workItem from="1712924501225" duration="13961000" />
+      <workItem from="1713530626037" duration="8837000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
@@ -215,7 +204,47 @@
       <option name="project" value="LOCAL" />
       <updated>1711475913973</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor/List">
+      <option name="closed" value="true" />
+      <created>1712932715121</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712932715121</updated>
+    </task>
+    <task id="LOCAL-00003" summary="todo">
+      <option name="closed" value="true" />
+      <created>1712932727349</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712932727349</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor/date validator">
+      <option name="closed" value="true" />
+      <created>1712932747589</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712932747589</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor/binding kafka">
+      <option name="closed" value="true" />
+      <created>1712932763303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712932763303</updated>
+    </task>
+    <task id="LOCAL-00006" summary="doc/FeedbackAnalysisFilterDto">
+      <option name="closed" value="true" />
+      <created>1712944568169</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712944568169</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +263,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restaurant and feedbacks seeders" />
-    <option name="LAST_COMMIT_MESSAGE" value="restaurant and feedbacks seeders" />
+    <MESSAGE value="refactor/List" />
+    <MESSAGE value="todo" />
+    <MESSAGE value="refactor/date validator" />
+    <MESSAGE value="refactor/binding kafka" />
+    <MESSAGE value="doc/FeedbackAnalysisFilterDto" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc/FeedbackAnalysisFilterDto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

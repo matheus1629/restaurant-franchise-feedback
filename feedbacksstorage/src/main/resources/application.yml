@@ -11,7 +11,7 @@ spring:
       database: feedback-restaurant
   cloud:
     function:
-      definition: feedbacksReceiver;analysisByRegion;requestAnalysisByAgeGroup
+      definition: feedbacksReceiver;analysisByRegion;requestAnalysisByAgeGroup;requestCustomAnalysis
     stream:
       bindings:
         feedbacksReceiver-in-0:
@@ -23,10 +23,15 @@ spring:
         requestAnalysisByAgeGroup-in-0:
           destination: request-analysis-by-age-group
           group: ${spring.application.name}
+        requestCustomAnalysis-in-0:
+          destination: request-custom-analysis
+          group: ${spring.application.name}
         analysisByRegion-out-0:
           destination: receive-analysis-by-region
         requestAnalysisByAgeGroup-out-0:
           destination: receive-analysis-age-group
+        requestCustomAnalysis-out-0:
+          destination: receive-custom-analysis
       kafka:
         binder:
           brokers:

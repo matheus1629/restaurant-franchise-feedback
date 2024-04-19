@@ -21,4 +21,9 @@ public class FeedbacksAnalysisFunction {
     public Function<TimeFilterDto, AgeGroupAnalysisDto> requestAnalysisByAgeGroup(FeedbacksStorageService feedbacksStorageService) {
         return filterDto -> feedbacksStorageService.getAnalysisByAgeGroup(filterDto);
     }
+
+    @Bean
+    public Function<TimeFilterDto, AgeGroupAnalysisDto> requestCustomAnalysis(FeedbacksStorageService feedbacksStorageService) {
+        return filterDto -> feedbacksStorageService.getAnalysisByAgeGroup(filterDto);
+    }
 }

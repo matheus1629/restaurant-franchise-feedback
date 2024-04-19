@@ -1,7 +1,7 @@
 package com.restaurant.feedbacksanalysis.controller;
 
 import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
-import com.restaurant.feedbacksanalysis.dto.FeedbackAnalysisFilterDto;
+import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import com.restaurant.feedbacksanalysis.validators.DateValidator;
@@ -17,6 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -135,17 +136,14 @@ public class FeedbacksAnalysisController {
     }
     )
     @GetMapping("/custom-analysis")
-    public ResponseEntity<AgeGroupAnalysisDto> customFeedbackAnalysis(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
-                                                                      @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate,
-                                                                      @ModelAttribute FeedbackAnalysisFilterDto feedbackAnalysisFilterDto
-    ) throws ExecutionException, InterruptedException, TimeoutException {
+    public ResponseEntity<AgeGroupAnalysisDto> customFeedbackAnalysis(@ModelAttribute CustomAnalysisFilterDto customAnalysisFilterDto) throws ExecutionException, InterruptedException, TimeoutException {
 
-        DateValidator.validateDateFilter(initDate, finalDate);
+        DateValidator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
 
         CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
-        feedbacksAnalysisService.getAnalysisByAgeGroup(initDate, finalDate);
+        feedbacksAnalysisService.getCustomAnalysis(customAnalysisFilterDto);
 
         AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
