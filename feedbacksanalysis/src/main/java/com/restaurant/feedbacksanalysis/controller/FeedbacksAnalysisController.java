@@ -1,6 +1,7 @@
 package com.restaurant.feedbacksanalysis.controller;
 
 import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
+import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
@@ -136,18 +137,20 @@ public class FeedbacksAnalysisController {
     }
     )
     @GetMapping("/custom-analysis")
-    public ResponseEntity<AgeGroupAnalysisDto> customFeedbackAnalysis(@ModelAttribute CustomAnalysisFilterDto customAnalysisFilterDto) throws ExecutionException, InterruptedException, TimeoutException {
+    public ResponseEntity<CustomAnalysisDto> customFeedbackAnalysis(@ModelAttribute CustomAnalysisFilterDto customAnalysisFilterDto) throws ExecutionException, InterruptedException, TimeoutException {
 
-        DateValidator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
+        // TODO json
+        if (customAnalysisFilterDto.getInitDate() != null && customAnalysisFilterDto.getFinalDate() != null)
+            DateValidator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
 
-        CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
+        CompletableFuture<CustomAnalysisDto> future = new CompletableFuture<>();
 
-        feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
+        feedbacksAnalysisService.setCustomAnalysisCallback(future::complete);
         feedbacksAnalysisService.getCustomAnalysis(customAnalysisFilterDto);
 
-        AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
+        CustomAnalysisDto customAnalysisDto = future.get(2, TimeUnit.SECONDS);
 
-        return ResponseEntity.ok(ageGroupAnalysisDto);
+        return ResponseEntity.ok(customAnalysisDto);
     }
 
 }

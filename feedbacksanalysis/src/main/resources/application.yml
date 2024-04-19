@@ -6,7 +6,7 @@ spring:
     name: "feedbacksanalysis"
   cloud:
     function:
-      definition: receiveAnalysisByRegion;receiveAnalysisAgeGroup;requestCustomAnalysis
+      definition: receiveAnalysisByRegion;receiveAnalysisAgeGroup;receiveCustomAnalysis
     stream:
       bindings:
         receiveAnalysisByRegion-in-0:
@@ -14,7 +14,7 @@ spring:
           group: ${spring.application.name}
         receiveAnalysisAgeGroup-in-0:
           destination: receive-analysis-age-group
-        requestCustomAnalysis-in-0:
+        receiveCustomAnalysis-in-0:
           destination: receive-custom-analysis
           group: ${spring.application.name}
         requestAnalysisByRegion-out-0:

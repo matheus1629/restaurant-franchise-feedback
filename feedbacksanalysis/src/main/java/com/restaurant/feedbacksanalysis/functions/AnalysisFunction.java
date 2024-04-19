@@ -1,6 +1,7 @@
 package com.restaurant.feedbacksanalysis.functions;
 
 import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
+import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,10 @@ public class AnalysisFunction {
     @Bean
     public Consumer<AgeGroupAnalysisDto> receiveAnalysisAgeGroup() {
         return ageGroupAnalysisDto -> feedbacksAnalysisService.getAgeGroupAnalysisCallback().onResult(ageGroupAnalysisDto);
+    }
+
+    @Bean
+    public Consumer<CustomAnalysisDto> receiveCustomAnalysis() {
+        return customAnalysisDto -> feedbacksAnalysisService.getCustomAnalysisCallback().onResult(customAnalysisDto);
     }
 }

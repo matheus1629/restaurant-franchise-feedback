@@ -1,8 +1,10 @@
 package com.restaurant.feedbacksanalysis.service;
 
+import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.TimeFilterDto;
 import com.restaurant.feedbacksanalysis.service.callbacks.AgeGroupAnalysisCallback;
+import com.restaurant.feedbacksanalysis.service.callbacks.CustomAnalysisCallback;
 import com.restaurant.feedbacksanalysis.service.callbacks.RegionAnalysisCallback;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
+// TODO Setter getters
 @Service
 @RequiredArgsConstructor
 public class FeedbacksAnalysisService {
@@ -17,6 +20,7 @@ public class FeedbacksAnalysisService {
     private final StreamBridge streamBridge;
     private RegionAnalysisCallback regionAnalysisCallback;
     private AgeGroupAnalysisCallback ageGroupAnalysisCallback;
+    private CustomAnalysisCallback customAnalysisCallback;
 
     public void setRegionAnalysisCallback(RegionAnalysisCallback regionAnalysisCallback) {
         this.regionAnalysisCallback = regionAnalysisCallback;
@@ -32,6 +36,14 @@ public class FeedbacksAnalysisService {
 
     public AgeGroupAnalysisCallback getAgeGroupAnalysisCallback() {
         return this.ageGroupAnalysisCallback;
+    }
+
+    public void setCustomAnalysisCallback(CustomAnalysisCallback customAnalysisCallback) {
+        this.customAnalysisCallback = customAnalysisCallback;
+    }
+
+    public CustomAnalysisCallback getCustomAnalysisCallback() {
+        return this.customAnalysisCallback;
     }
 
     public void getAnalysisByRegion(LocalDate initDate, LocalDate finalDate) {
@@ -60,8 +72,8 @@ public class FeedbacksAnalysisService {
         if (customAnalysisFilterDto.getInitDate() == null) customAnalysisFilterDto.setInitDate("1970-01-01");
         if (customAnalysisFilterDto.getFinalDate() == null)
             customAnalysisFilterDto.setFinalDate(LocalDate.now().toString());
-
-        boolean result = streamBridge.send("requestAnalysisByAgeGroup-out-0", customAnalysisFilterDto);
+        System.out.println(customAnalysisFilterDto);
+        boolean result = streamBridge.send("requestCustomAnalysis-out-0", customAnalysisFilterDto);
         System.out.println("RESULT" + result);
 
     }

@@ -21,27 +21,29 @@ import org.springframework.format.annotation.DateTimeFormat;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomAnalysisFilterDto {
+
+
     // TODO DateTimeParseException
-    @Schema(description = "Initial date", example = "2022-03-05")
+    @Schema(description = "Initial date", example = "2022-03-05", defaultValue = "1970-01-01")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private String initDate;
 
-    @Schema(description = "Final date", example = "2023-03-05")
+    @Schema(description = "Final date", example = "2023-03-05", defaultValue = "Today's date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private String finalDate;
 
     @Schema(description = "Region of the restaurants.", example = "MIDWEST")
     private Region region;
 
-    @Schema(description = "Minimum customer's age. Can't be higher than MaxAge", example = "20", minimum = "1", maximum = "110")
+    @Schema(description = "Minimum customer's age. Can't be higher than MaxAge", example = "20", minimum = "1", maximum = "110", defaultValue = "16")
     @Min(16)
     @Max(110)
-    private Integer minAge;
+    private Integer minAge = 16;
 
-    @Schema(description = "Minimum customer's age. Can't be lower than MinAge", example = "50", minimum = "1", maximum = "110")
+    @Schema(description = "Minimum customer's age. Can't be lower than MinAge", example = "50", minimum = "1", maximum = "110", defaultValue = "110")
     @Min(16)
     @Max(110)
-    private Integer maxAge;
+    private Integer maxAge = 110;
 
     @Schema(description = "Customer's gender", example = "FEMALE")
     private Gender gender;

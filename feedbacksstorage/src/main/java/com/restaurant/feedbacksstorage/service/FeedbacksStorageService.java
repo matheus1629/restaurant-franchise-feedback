@@ -8,10 +8,14 @@ import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
 import com.restaurant.feedbacksstorage.util.StatisticsCalculator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +24,7 @@ import java.util.Map;
 public class FeedbacksStorageService {
 
     private final FeedbacksStorageRepository feedbacksStorageRepository;
+    private final MongoTemplate mongoTemplate;
 
     private List<FeedbackEntity> feedbacks;
     private List<Integer> ageList = new ArrayList<>();
@@ -147,7 +152,61 @@ public class FeedbacksStorageService {
         return ageGroupAnalysisDto;
     }
 
-    public AgeGroupAnalysisDto getCustomAnalysis(TimeFilterDto filterDto){
-return null;
+    public CustomAnalysisDto getCustomAnalysis(CustomAnalysisFilterDto customAnalysisFilterDto) {
+        System.out.println(customAnalysisFilterDto);
+        CustomAnalysisDto customAnalysisDto = new CustomAnalysisDto();
+        Query query = new Query();
+        HashMap<String, String> mapFiltersAdded = new HashMap<>();
+
+        if (customAnalysisFilterDto.region() != null) {
+            query.addCriteria(Criteria.where("region").is(customAnalysisFilterDto.region()));
+            mapFiltersAdded.put("Region", customAnalysisFilterDto.region());
+        }
+
+
+        query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
+        mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
+        mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.minAge().toString());
+
+
+        if (customAnalysisFilterDto.gender() != null) {
+            query.addCriteria(Criteria.where("gender").is(customAnalysisFilterDto.gender()));
+            mapFiltersAdded.put("Gender", customAnalysisFilterDto.gender());
+        }
+//        if (customAnalysisFilterDto.minRating() != null) {
+//            query.addCriteria(Criteria.where("rating").gte(customAnalysisFilterDto.minRating()));
+//            mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
+//        }
+//        if (customAnalysisFilterDto.maxRating() != null) {
+//            query.addCriteria(Criteria.where("rating").lte(customAnalysisFilterDto.maxRating()));
+//            mapFiltersAdded.put("MaxRating", customAnalysisFilterDto.maxRating().toString());
+//        }
+        if (customAnalysisFilterDto.mealQuality() != null) {
+            query.addCriteria(Criteria.where("mealQuality").is(customAnalysisFilterDto.mealQuality()));
+            mapFiltersAdded.put("MealQuality", customAnalysisFilterDto.mealQuality());
+        }
+        if (customAnalysisFilterDto.wrongOrder() != null) {
+            query.addCriteria(Criteria.where("wrongOrder").is(customAnalysisFilterDto.wrongOrder()));
+            mapFiltersAdded.put("wrongOrder", customAnalysisFilterDto.wrongOrder().toString());
+        }
+        if (customAnalysisFilterDto.waitingTime() != null) {
+            query.addCriteria(Criteria.where("waitingTime").is(customAnalysisFilterDto.waitingTime()));
+            mapFiltersAdded.put("WaitingTime", customAnalysisFilterDto.waitingTime());
+        }
+        if (customAnalysisFilterDto.ambience() != null) {
+            query.addCriteria(Criteria.where("ambience").is(customAnalysisFilterDto.ambience()));
+            mapFiltersAdded.put("Ambience", customAnalysisFilterDto.ambience());
+        }
+        if (customAnalysisFilterDto.service() != null) {
+            query.addCriteria(Criteria.where("service").is(customAnalysisFilterDto.service()));
+            mapFiltersAdded.put("Service", customAnalysisFilterDto.service());
+        }
+
+        List<FeedbackEntity> feedbacksByCustomFilters = mongoTemplate.find(query, FeedbackEntity.class);
+        System.out.println(feedbacksByCustomFilters);
+        System.out.println(feedbacksByCustomFilters.stream().count());
+
+        customAnalysisDto.setFiltersAdded(mapFiltersAdded);
+        return null;
     }
 }

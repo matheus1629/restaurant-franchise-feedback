@@ -1,8 +1,6 @@
 package com.restaurant.feedbacksstorage.functions;
 
-import com.restaurant.feedbacksstorage.dto.AgeGroupAnalysisDto;
-import com.restaurant.feedbacksstorage.dto.RegionAnalysisDto;
-import com.restaurant.feedbacksstorage.dto.TimeFilterDto;
+import com.restaurant.feedbacksstorage.dto.*;
 import com.restaurant.feedbacksstorage.service.FeedbacksStorageService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +21,7 @@ public class FeedbacksAnalysisFunction {
     }
 
     @Bean
-    public Function<TimeFilterDto, AgeGroupAnalysisDto> requestCustomAnalysis(FeedbacksStorageService feedbacksStorageService) {
-        return filterDto -> feedbacksStorageService.getAnalysisByAgeGroup(filterDto);
+    public Function<CustomAnalysisFilterDto, CustomAnalysisDto> requestCustomAnalysis(FeedbacksStorageService feedbacksStorageService) {
+        return customAnalysisFilterDto -> feedbacksStorageService.getCustomAnalysis(customAnalysisFilterDto);
     }
 }
