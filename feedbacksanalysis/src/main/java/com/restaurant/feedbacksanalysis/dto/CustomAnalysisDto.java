@@ -14,7 +14,7 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 public class CustomAnalysisDto {
-    private List<String> filtersAdded;
+    private Map<String, String> filtersAdded;
     private Map<Region, String> regionStatistic;
     private Map<String, String> ageStatistic;
     private Map<Gender, String> genderStatistic;

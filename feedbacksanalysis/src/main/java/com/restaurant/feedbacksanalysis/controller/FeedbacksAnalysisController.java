@@ -5,7 +5,7 @@ import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
-import com.restaurant.feedbacksanalysis.validators.DateValidator;
+import com.restaurant.feedbacksanalysis.validators.Validator;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -62,7 +62,7 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<RegionAnalysisDto> feedbackAnalysisByRegion(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                                       @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
-        DateValidator.validateDateFilter(initDate, finalDate);
+        Validator.validateDateFilter(initDate, finalDate);
 
         CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
 
@@ -101,7 +101,7 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<AgeGroupAnalysisDto> feedbackAnalysisByAgeGroup(@RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
                                                                           @RequestParam(required = false) @PastOrPresent @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate) throws ExecutionException, InterruptedException, TimeoutException {
 
-        DateValidator.validateDateFilter(initDate, finalDate);
+        Validator.validateDateFilter(initDate, finalDate);
 
         CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
 
@@ -140,15 +140,18 @@ public class FeedbacksAnalysisController {
     public ResponseEntity<CustomAnalysisDto> customFeedbackAnalysis(@ModelAttribute CustomAnalysisFilterDto customAnalysisFilterDto) throws ExecutionException, InterruptedException, TimeoutException {
 
         // TODO json
-        if (customAnalysisFilterDto.getInitDate() != null && customAnalysisFilterDto.getFinalDate() != null)
-            DateValidator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
+        if (customAnalysisFilterDto.getInitDate() != null && customAnalysisFilterDto.getFinalDate() != null) {
+            Validator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
+        }
+        // TODO test
+        Validator.validateRatingFilter(customAnalysisFilterDto.getMinRating(), customAnalysisFilterDto.getMaxRating());
 
         CompletableFuture<CustomAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setCustomAnalysisCallback(future::complete);
         feedbacksAnalysisService.getCustomAnalysis(customAnalysisFilterDto);
 
-        CustomAnalysisDto customAnalysisDto = future.get(2, TimeUnit.SECONDS);
+        CustomAnalysisDto customAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
         return ResponseEntity.ok(customAnalysisDto);
     }

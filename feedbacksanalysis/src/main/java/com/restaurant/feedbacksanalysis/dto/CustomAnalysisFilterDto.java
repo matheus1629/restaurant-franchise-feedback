@@ -48,15 +48,15 @@ public class CustomAnalysisFilterDto {
     @Schema(description = "Customer's gender", example = "FEMALE")
     private Gender gender;
 
-    @Schema(description = "Minimum rating. Can't be higher than maxRating", example = "5", minimum = "1", maximum = "10")
+    @Schema(description = "Minimum rating. Can't be higher than maxRating", example = "5", minimum = "1", maximum = "10", defaultValue = "1")
     @Min(1)
     @Max(10)
-    private Integer minRating;
+    private Integer minRating = 1;
 
-    @Schema(description = "Maximum rating. Can't be lower than maxRating", example = "10", minimum = "1", maximum = "10")
+    @Schema(description = "Maximum rating. Can't be lower than maxRating", example = "10", minimum = "1", maximum = "10", defaultValue = "10")
     @Min(1)
     @Max(10)
-    private Integer maxRating;
+    private Integer maxRating = 10;
 
     @Schema(description = "Level of satisfaction with the quality of the meal", example = "SATISFIED")
     private LevelSatisfaction mealQuality;

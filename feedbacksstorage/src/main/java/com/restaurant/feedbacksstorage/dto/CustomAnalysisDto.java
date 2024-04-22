@@ -4,6 +4,7 @@ import com.restaurant.feedbacksstorage.enums.Gender;
 import com.restaurant.feedbacksstorage.enums.LevelSatisfaction;
 import com.restaurant.feedbacksstorage.enums.Region;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class CustomAnalysisDto {
     private Map<String, String> filtersAdded;
     private Map<Region, String> regionStatistic;

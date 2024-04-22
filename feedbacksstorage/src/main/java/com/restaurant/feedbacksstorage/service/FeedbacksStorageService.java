@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -153,34 +154,27 @@ public class FeedbacksStorageService {
     }
 
     public CustomAnalysisDto getCustomAnalysis(CustomAnalysisFilterDto customAnalysisFilterDto) {
-        System.out.println(customAnalysisFilterDto);
         CustomAnalysisDto customAnalysisDto = new CustomAnalysisDto();
         Query query = new Query();
         HashMap<String, String> mapFiltersAdded = new HashMap<>();
+
+        query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
+
+        mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
+        mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.maxRating().toString());
+
+        query.addCriteria(Criteria.where("rating").gte(customAnalysisFilterDto.minRating()).lte(customAnalysisFilterDto.maxRating()));
+        mapFiltersAdded.put("MinRating", customAnalysisFilterDto.minRating().toString());
+        mapFiltersAdded.put("MaxRating", customAnalysisFilterDto.maxRating().toString());
 
         if (customAnalysisFilterDto.region() != null) {
             query.addCriteria(Criteria.where("region").is(customAnalysisFilterDto.region()));
             mapFiltersAdded.put("Region", customAnalysisFilterDto.region());
         }
-
-
-        query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
-        mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
-        mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.minAge().toString());
-
-
         if (customAnalysisFilterDto.gender() != null) {
             query.addCriteria(Criteria.where("gender").is(customAnalysisFilterDto.gender()));
             mapFiltersAdded.put("Gender", customAnalysisFilterDto.gender());
         }
-//        if (customAnalysisFilterDto.minRating() != null) {
-//            query.addCriteria(Criteria.where("rating").gte(customAnalysisFilterDto.minRating()));
-//            mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
-//        }
-//        if (customAnalysisFilterDto.maxRating() != null) {
-//            query.addCriteria(Criteria.where("rating").lte(customAnalysisFilterDto.maxRating()));
-//            mapFiltersAdded.put("MaxRating", customAnalysisFilterDto.maxRating().toString());
-//        }
         if (customAnalysisFilterDto.mealQuality() != null) {
             query.addCriteria(Criteria.where("mealQuality").is(customAnalysisFilterDto.mealQuality()));
             mapFiltersAdded.put("MealQuality", customAnalysisFilterDto.mealQuality());
@@ -202,11 +196,48 @@ public class FeedbacksStorageService {
             mapFiltersAdded.put("Service", customAnalysisFilterDto.service());
         }
 
-        List<FeedbackEntity> feedbacksByCustomFilters = mongoTemplate.find(query, FeedbackEntity.class);
-        System.out.println(feedbacksByCustomFilters);
-        System.out.println(feedbacksByCustomFilters.stream().count());
+        feedbacks = mongoTemplate.find(query, FeedbackEntity.class);
+
+        for (FeedbackEntity feedback : feedbacks) {
+            regionList.add(feedback.getRegion());
+            ageList.add(feedback.getAge());
+            genderList.add(feedback.getGender());
+            ratingList.add(feedback.getRating());
+            mealQualityList.add(feedback.getMealQuality());
+            wrongOrderList.add(feedback.getWrongOrder());
+            waitingTimeList.add(feedback.getWaitingTime());
+            serviceList.add(feedback.getService());
+            ambienceList.add(feedback.getAmbience());
+        }
+        System.out.println(mealQualityList);
+        customAnalysisDto.setAgeStatistic((StatisticsCalculator.statisticDataAge(ageList)));
+        customAnalysisDto.setRatingStatistic((StatisticsCalculator.statisticDataRating(ratingList)));
+
+        if (!mapFiltersAdded.containsKey("Region")) {
+            customAnalysisDto.setRegionStatistic(StatisticsCalculator.statisticsDataEnum(regionList, Region.class));
+        }
+        if (!mapFiltersAdded.containsKey("Gender")) {
+            customAnalysisDto.setGenderStatistic(StatisticsCalculator.statisticsDataEnum(genderList, Gender.class));
+        }
+        if (!mapFiltersAdded.containsKey("MealQuality")) {
+            customAnalysisDto.setMealQualityStatistic(StatisticsCalculator.statisticsDataEnum(mealQualityList, LevelSatisfaction.class));
+        }
+        if (!mapFiltersAdded.containsKey("wrongOrder")) {
+            customAnalysisDto.setWrongOrderStatistic(StatisticsCalculator.statisticDataBoolean(wrongOrderList));
+        }
+        if (!mapFiltersAdded.containsKey("WaitingTime")) {
+            customAnalysisDto.setWaitingTimeStatistic(StatisticsCalculator.statisticsDataEnum(waitingTimeList, LevelSatisfaction.class));
+        }
+        if (!mapFiltersAdded.containsKey("Ambience")) {
+            customAnalysisDto.setAmbienceStatistic(StatisticsCalculator.statisticsDataEnum(ambienceList, LevelSatisfaction.class));
+        }
+        if (!mapFiltersAdded.containsKey("Service")) {
+            customAnalysisDto.setServiceStatistic(StatisticsCalculator.statisticsDataEnum(serviceList, LevelSatisfaction.class));
+        }
 
         customAnalysisDto.setFiltersAdded(mapFiltersAdded);
-        return null;
+        System.out.println(feedbacks);
+        System.out.println(customAnalysisDto);
+        return customAnalysisDto;
     }
 }
