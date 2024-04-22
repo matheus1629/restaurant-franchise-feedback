@@ -50,7 +50,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         List<String> messages = new ArrayList<>();
 
         for (JsonMappingException.Reference reference : e.getPath()) {
-            System.out.println(ex.getCause());
             String fieldName = reference.getFieldName();
             messages.add("Invalid field: " + fieldName);
         }

@@ -72,7 +72,7 @@ public class FeedbacksAnalysisService {
         if (customAnalysisFilterDto.getInitDate() == null) customAnalysisFilterDto.setInitDate("1970-01-01");
         if (customAnalysisFilterDto.getFinalDate() == null)
             customAnalysisFilterDto.setFinalDate(LocalDate.now().toString());
-        System.out.println(customAnalysisFilterDto);
+
         boolean result = streamBridge.send("requestCustomAnalysis-out-0", customAnalysisFilterDto);
         System.out.println("RESULT" + result);
 

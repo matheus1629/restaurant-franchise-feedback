@@ -143,7 +143,6 @@ public class FeedbacksAnalysisController {
         if (customAnalysisFilterDto.getInitDate() != null && customAnalysisFilterDto.getFinalDate() != null) {
             Validator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
         }
-        // TODO test
         Validator.validateRatingFilter(customAnalysisFilterDto.getMinRating(), customAnalysisFilterDto.getMaxRating());
 
         CompletableFuture<CustomAnalysisDto> future = new CompletableFuture<>();
@@ -152,6 +151,10 @@ public class FeedbacksAnalysisController {
         feedbacksAnalysisService.getCustomAnalysis(customAnalysisFilterDto);
 
         CustomAnalysisDto customAnalysisDto = future.get(5, TimeUnit.SECONDS);
+
+        if (customAnalysisDto.getFiltersAdded() == null) {
+            return ResponseEntity.noContent().header("Analysis", "No feedback was found based on the selected filters").build();
+        }
 
         return ResponseEntity.ok(customAnalysisDto);
     }

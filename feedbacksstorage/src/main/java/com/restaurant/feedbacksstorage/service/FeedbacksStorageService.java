@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,17 +25,6 @@ public class FeedbacksStorageService {
 
     private final FeedbacksStorageRepository feedbacksStorageRepository;
     private final MongoTemplate mongoTemplate;
-
-    private List<FeedbackEntity> feedbacks;
-    private List<Integer> ageList = new ArrayList<>();
-    private List<String> regionList = new ArrayList<>();
-    private List<String> genderList = new ArrayList<>();
-    private List<Integer> ratingList = new ArrayList<>();
-    private List<String> mealQualityList = new ArrayList<>();
-    private List<Boolean> wrongOrderList = new ArrayList<>();
-    private List<String> waitingTimeList = new ArrayList<>();
-    private List<String> serviceList = new ArrayList<>();
-    private List<String> ambienceList = new ArrayList<>();
 
     public void saveFeedback(FeedbackStorageDto feedbackStorageDto) {
 
@@ -57,13 +45,20 @@ public class FeedbacksStorageService {
                 .cep(feedbackStorageDto.cep())
                 .build();
 
-
         feedbacksStorageRepository.save(feedbackEntity);
-
-
     }
 
     public RegionAnalysisDto getAnalysisByRegion(TimeFilterDto filterDto) {
+        List<FeedbackEntity> feedbacks;
+        List<Integer> ageList = new ArrayList<>();
+        List<String> genderList = new ArrayList<>();
+        List<Integer> ratingList = new ArrayList<>();
+        List<String> mealQualityList = new ArrayList<>();
+        List<Boolean> wrongOrderList = new ArrayList<>();
+        List<String> waitingTimeList = new ArrayList<>();
+        List<String> serviceList = new ArrayList<>();
+        List<String> ambienceList = new ArrayList<>();
+
         Map<String, List<FeedbackEntity>> feedbacksByRegion = feedbacksStorageRepository.findDocumentsByRegion(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
         RegionAnalysisDto regionAnalysisDto = new RegionAnalysisDto();
 
@@ -109,6 +104,16 @@ public class FeedbacksStorageService {
     }
 
     public AgeGroupAnalysisDto getAnalysisByAgeGroup(TimeFilterDto filterDto) {
+        List<FeedbackEntity> feedbacks;
+        List<String> regionList = new ArrayList<>();
+        List<String> genderList = new ArrayList<>();
+        List<Integer> ratingList = new ArrayList<>();
+        List<String> mealQualityList = new ArrayList<>();
+        List<Boolean> wrongOrderList = new ArrayList<>();
+        List<String> waitingTimeList = new ArrayList<>();
+        List<String> serviceList = new ArrayList<>();
+        List<String> ambienceList = new ArrayList<>();
+
         Map<String, List<FeedbackEntity>> feedbacksByAgeGroup = feedbacksStorageRepository.findDocumentsByAgeGroup(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
         AgeGroupAnalysisDto ageGroupAnalysisDto = new AgeGroupAnalysisDto();
 
@@ -154,6 +159,17 @@ public class FeedbacksStorageService {
     }
 
     public CustomAnalysisDto getCustomAnalysis(CustomAnalysisFilterDto customAnalysisFilterDto) {
+        List<FeedbackEntity> feedbacks;
+        List<Integer> ageList = new ArrayList<>();
+        List<String> regionList = new ArrayList<>();
+        List<String> genderList = new ArrayList<>();
+        List<Integer> ratingList = new ArrayList<>();
+        List<String> mealQualityList = new ArrayList<>();
+        List<Boolean> wrongOrderList = new ArrayList<>();
+        List<String> waitingTimeList = new ArrayList<>();
+        List<String> serviceList = new ArrayList<>();
+        List<String> ambienceList = new ArrayList<>();
+
         CustomAnalysisDto customAnalysisDto = new CustomAnalysisDto();
         Query query = new Query();
         HashMap<String, String> mapFiltersAdded = new HashMap<>();
@@ -198,6 +214,8 @@ public class FeedbacksStorageService {
 
         feedbacks = mongoTemplate.find(query, FeedbackEntity.class);
 
+        if (feedbacks.size() == 0) return customAnalysisDto;
+
         for (FeedbackEntity feedback : feedbacks) {
             regionList.add(feedback.getRegion());
             ageList.add(feedback.getAge());
@@ -209,7 +227,7 @@ public class FeedbacksStorageService {
             serviceList.add(feedback.getService());
             ambienceList.add(feedback.getAmbience());
         }
-        System.out.println(mealQualityList);
+
         customAnalysisDto.setAgeStatistic((StatisticsCalculator.statisticDataAge(ageList)));
         customAnalysisDto.setRatingStatistic((StatisticsCalculator.statisticDataRating(ratingList)));
 
@@ -236,8 +254,7 @@ public class FeedbacksStorageService {
         }
 
         customAnalysisDto.setFiltersAdded(mapFiltersAdded);
-        System.out.println(feedbacks);
-        System.out.println(customAnalysisDto);
+
         return customAnalysisDto;
     }
 }
