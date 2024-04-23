@@ -3,18 +3,23 @@ package com.restaurant.feedbackscollector.exception;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.restaurant.feedbackscollector.dto.ErrorResponseDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
@@ -22,19 +27,40 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest webRequest) {
 
-        List<String> errors = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map(x -> x.getField() + ": " + x.getDefaultMessage())
-                .collect(Collectors.toList());
 
-        Map<String, Object> body = createResponseBody((HttpStatus) status, errors.get(0).toString());
+        Map<String, String> validationErrors = new HashMap<>();
+        List<ObjectError> validationErrorList = ex.getBindingResult().getAllErrors();
 
-        return new ResponseEntity<>(body, headers, status);
+        validationErrorList.forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String validationMsg = error.getDefaultMessage();
+            validationErrors.put(fieldName, validationMsg);
+        });
+
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                (HttpStatus) status,
+                validationErrors.toString(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponseDTO, status);
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception ex,
+                                                                  WebRequest webRequest) {
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
@@ -69,24 +95,31 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Object> handleException(ResourceNotFoundException exception) {
+    public ResponseEntity<ErrorResponseDto> handleException(ResourceNotFoundException ex, WebRequest webRequest) {
 
-        Map<String, Object> body = createResponseBody(HttpStatus.NOT_FOUND, exception.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.NOT_FOUND,
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(MessageSendFailedException.class)
-    public ResponseEntity<Object> handleException(MessageSendFailedException exception) {
+    @ExceptionHandler(TimeoutException.class)
+    protected ResponseEntity<ErrorResponseDto> handleTimeout(
+            TimeoutException ex, WebRequest webRequest) {
 
-        Map<String, Object> body = createResponseBody(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+        String errorMessage = "The request exceeded the maximum allowed time of 5 seconds.";
+
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.REQUEST_TIMEOUT,
+                errorMessage,
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.REQUEST_TIMEOUT);
     }
 
-    private Map<String, Object> createResponseBody(HttpStatus status, String message) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-        body.put("status", status.value());
-        body.put("message", message);
-        return body;
-    }
 }

@@ -1,6 +1,5 @@
 package com.restaurant.feedbacksanalysis.service;
 
-import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
 import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
 import com.restaurant.feedbacksanalysis.dto.TimeFilterDto;
 import com.restaurant.feedbacksanalysis.service.callbacks.AgeGroupAnalysisCallback;
@@ -52,9 +51,7 @@ public class FeedbacksAnalysisService {
 
 
         TimeFilterDto timeFilterDto = new TimeFilterDto(initDate.toString(), finalDate.toString());
-        boolean result = streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto);
-        System.out.println("RESULT" + result);
-
+        streamBridge.send("requestAnalysisByRegion-out-0", timeFilterDto);
     }
 
     public void getAnalysisByAgeGroup(LocalDate initDate, LocalDate finalDate) {
@@ -63,9 +60,7 @@ public class FeedbacksAnalysisService {
 
 
         TimeFilterDto timeFilterDto = new TimeFilterDto(initDate.toString(), finalDate.toString());
-        boolean result = streamBridge.send("requestAnalysisByAgeGroup-out-0", timeFilterDto);
-        System.out.println("RESULT" + result);
-
+        streamBridge.send("requestAnalysisByAgeGroup-out-0", timeFilterDto);
     }
 
     public void getCustomAnalysis(CustomAnalysisFilterDto customAnalysisFilterDto) {
@@ -73,8 +68,6 @@ public class FeedbacksAnalysisService {
         if (customAnalysisFilterDto.getFinalDate() == null)
             customAnalysisFilterDto.setFinalDate(LocalDate.now().toString());
 
-        boolean result = streamBridge.send("requestCustomAnalysis-out-0", customAnalysisFilterDto);
-        System.out.println("RESULT" + result);
-
+        streamBridge.send("requestCustomAnalysis-out-0", customAnalysisFilterDto);
     }
 }

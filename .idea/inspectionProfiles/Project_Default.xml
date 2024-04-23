@@ -5,6 +5,7 @@
       <option name="customHeaders">
         <set>
           <option value="Analysis" />
+          <option value="Analysis Result" />
         </set>
       </option>
     </inspection_tool>

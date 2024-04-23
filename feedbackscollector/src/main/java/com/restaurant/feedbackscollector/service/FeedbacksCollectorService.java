@@ -2,7 +2,6 @@ package com.restaurant.feedbackscollector.service;
 
 import com.restaurant.feedbackscollector.dto.FeedbackDto;
 import com.restaurant.feedbackscollector.dto.FeedbackStorageDto;
-import com.restaurant.feedbackscollector.exception.MessageSendFailedException;
 import com.restaurant.feedbackscollector.exception.ResourceNotFoundException;
 import com.restaurant.feedbackscollector.model.RestaurantEntity;
 import com.restaurant.feedbackscollector.repository.RestaurantRepository;
@@ -11,6 +10,10 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 
 @Service
@@ -21,7 +24,7 @@ public class FeedbacksCollectorService {
     private final RestaurantRepository restaurantRepository;
     private String channel = "sendFeedback-out-0";
 
-    public void sendFeedback(FeedbackDto feedbackDto) {
+    public void sendFeedback(FeedbackDto feedbackDto) throws ExecutionException, InterruptedException, TimeoutException {
 
         RestaurantEntity restaurantData = getRestaurantInfo(feedbackDto.getIdRestaurant());
 
@@ -32,8 +35,9 @@ public class FeedbacksCollectorService {
                 restaurantData.getRegion(), restaurantData.getState(), restaurantData.getCity(), restaurantData.getCep()
         );
 
-        boolean result = streamBridge.send(channel, feedbackStorageDto);
-        if (!result) throw new MessageSendFailedException("Fail to send message to channel: " + channel);
+        CompletableFuture<Boolean> future = CompletableFuture.supplyAsync(() -> streamBridge.send(channel, feedbackStorageDto));
+
+        future.get(5, TimeUnit.SECONDS);
     }
 
     private RestaurantEntity getRestaurantInfo(Integer idRestaurant) {

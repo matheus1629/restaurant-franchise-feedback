@@ -39,21 +39,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
                 webRequest.getDescription(false),
-                HttpStatus.BAD_REQUEST,
+                (HttpStatus) status,
                 validationErrors.toString(),
                 LocalDateTime.now()
         );
 
-        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorResponseDTO, status);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception exception,
+    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception ex,
                                                                   WebRequest webRequest) {
         ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
                 webRequest.getDescription(false),
                 HttpStatus.INTERNAL_SERVER_ERROR,
-                exception.getMessage(),
+                ex.getMessage(),
                 LocalDateTime.now()
         );
 

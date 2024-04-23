@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/dto/ErrorResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/ErrorResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/controller/FeedbacksCollectorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +106,11 @@
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalyzer\src\main\java\com\restaurant\feedbacksanalyzer" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.restaurant.feedbackscollector.dto" />
       <recent name="com.restaurant.feedbacksstorage.dto" />
       <recent name="com.restaurant.feedbacksanalysis.service.callbacks" />
       <recent name="com.restaurant.feedbacksanalysis.dto" />
       <recent name="com.restaurant.feedbacksanalysis.enums" />
-      <recent name="com.restaurant.feedbacksstorage.enums" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -192,7 +195,7 @@
       <workItem from="1712924501225" duration="13961000" />
       <workItem from="1713530626037" duration="20312000" />
       <workItem from="1713788366191" duration="19001000" />
-      <workItem from="1713874921760" duration="1181000" />
+      <workItem from="1713874921760" duration="6936000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
