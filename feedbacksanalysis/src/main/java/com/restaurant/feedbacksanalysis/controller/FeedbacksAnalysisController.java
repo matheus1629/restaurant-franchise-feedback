@@ -1,12 +1,12 @@
 package com.restaurant.feedbacksanalysis.controller;
 
-import com.restaurant.feedbacksanalysis.dto.AgeGroupAnalysisDto;
-import com.restaurant.feedbacksanalysis.dto.CustomAnalysisDto;
-import com.restaurant.feedbacksanalysis.dto.CustomAnalysisFilterDto;
-import com.restaurant.feedbacksanalysis.dto.RegionAnalysisDto;
+import com.restaurant.feedbacksanalysis.dto.*;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import com.restaurant.feedbacksanalysis.validators.Validator;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.headers.Header;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,12 +28,14 @@ import java.util.concurrent.TimeoutException;
 @RequestMapping(path = "/api")
 @Validated
 @RequiredArgsConstructor
-@Tag(name = "Get Feedbacks Analysis")
+@Tag(name = "Get Feedbacks Analysis",
+        description = "Get analysis of feedbacks stored in the database")
 public class FeedbacksAnalysisController {
 
 
     private final FeedbacksAnalysisService feedbacksAnalysisService;
-
+    private final String headerName = "Analysis Result";
+    private final String headerValue = "No feedback was found based on the selected filters";
 
     @Operation(
             summary = "Get Feedbacks Analysis by Region",
@@ -45,16 +47,35 @@ public class FeedbacksAnalysisController {
                     description = "HTTP Status Ok"
             ),
             @ApiResponse(
+                    responseCode = "204",
+                    description = "HTTP Status No Content",
+                    headers = {
+                            @Header(name = headerName, description = headerValue)
+                    },
+                    content = @Content(
+                            schema = @Schema()
+                    )
+            ),
+            @ApiResponse(
                     responseCode = "400",
-                    description = "HTTP Status Bad Request"
+                    description = "HTTP Status Bad Request",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "408",
-                    description = "HTTP Status Request Timeout"
+                    description = "HTTP Status Request Timeout",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status Internal Server Error"
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             )
     }
     )
@@ -71,6 +92,14 @@ public class FeedbacksAnalysisController {
 
         RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
+        if (regionAnalysisDto.getSouth() == null &&
+                regionAnalysisDto.getSoutheast() == null &&
+                regionAnalysisDto.getMidwest() == null &&
+                regionAnalysisDto.getNortheast() == null &&
+                regionAnalysisDto.getNorth() == null) {
+            return ResponseEntity.noContent().header(headerName, headerValue).build();
+        }
+
         return ResponseEntity.ok(regionAnalysisDto);
     }
 
@@ -81,19 +110,42 @@ public class FeedbacksAnalysisController {
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",
-                    description = "HTTP Status Ok"
+                    description = "HTTP Status Ok",
+                    content = @Content(
+                            schema = @Schema(implementation = RegionAnalysisDto.class)
+
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "HTTP Status No Content",
+                    headers = {
+                            @Header(name = headerName, description = headerValue)
+                    },
+                    content = @Content(
+                            schema = @Schema()
+                    )
             ),
             @ApiResponse(
                     responseCode = "400",
-                    description = "HTTP Status Bad Request"
+                    description = "HTTP Status Bad Request",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "408",
-                    description = "HTTP Status Request Timeout"
+                    description = "HTTP Status Request Timeout",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status Internal Server Error"
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             )
     }
     )
@@ -110,6 +162,14 @@ public class FeedbacksAnalysisController {
 
         AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
+        if (ageGroupAnalysisDto.getAgeGroup16To24() == null &&
+                ageGroupAnalysisDto.getAgeGroup25To35() == null &&
+                ageGroupAnalysisDto.getAgeGroup36To50() == null &&
+                ageGroupAnalysisDto.getAgeGroup51To70() == null &&
+                ageGroupAnalysisDto.getAgeGroup71To110() == null) {
+            return ResponseEntity.noContent().header(headerName, headerValue).build();
+        }
+
         return ResponseEntity.ok(ageGroupAnalysisDto);
     }
 
@@ -120,19 +180,37 @@ public class FeedbacksAnalysisController {
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",
-                    description = "HTTP Status Ok"
+                    description = "HTTP Status Ok"),
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "HTTP Status No Content",
+                    headers = {
+                            @Header(name = headerName, description = headerValue)
+                    },
+                    content = @Content(
+                            schema = @Schema()
+                    )
             ),
             @ApiResponse(
                     responseCode = "400",
-                    description = "HTTP Status Bad Request"
+                    description = "HTTP Status Bad Request",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "408",
-                    description = "HTTP Status Request Timeout"
+                    description = "HTTP Status Request Timeout",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status Internal Server Error"
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             )
     }
     )
@@ -153,7 +231,7 @@ public class FeedbacksAnalysisController {
         CustomAnalysisDto customAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
         if (customAnalysisDto.getFiltersAdded() == null) {
-            return ResponseEntity.noContent().header("Analysis", "No feedback was found based on the selected filters").build();
+            return ResponseEntity.noContent().header(headerName, headerValue).build();
         }
 
         return ResponseEntity.ok(customAnalysisDto);

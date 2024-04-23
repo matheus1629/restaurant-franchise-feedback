@@ -1,112 +1,102 @@
 package com.restaurant.feedbacksanalysis.exception;
 
 
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.restaurant.feedbacksanalysis.dto.ErrorResponseDto;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
-import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest webRequest) {
 
-        List<String> errors = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map(x -> x.getField() + ": " + x.getDefaultMessage())
-                .collect(Collectors.toList());
+        Map<String, String> validationErrors = new HashMap<>();
+        List<ObjectError> validationErrorList = ex.getBindingResult().getAllErrors();
 
-        Map<String, Object> body = createResponseBody((HttpStatus) status, errors.get(0).toString());
+        validationErrorList.forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String validationMsg = error.getDefaultMessage();
+            validationErrors.put(fieldName, validationMsg);
+        });
 
-        return new ResponseEntity<>(body, headers, status);
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.BAD_REQUEST,
+                validationErrors.toString(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
     }
 
-    @Override
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        if (!(ex.getCause() instanceof JsonMappingException)) {
-            return new ResponseEntity("", headers, status);
-        }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception exception,
+                                                                  WebRequest webRequest) {
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                exception.getMessage(),
+                LocalDateTime.now()
+        );
 
-        JsonMappingException e = (JsonMappingException) ex.getCause();
-
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-        body.put("status", HttpStatus.BAD_REQUEST.value());
-        List<String> messages = new ArrayList<>();
-
-        for (JsonMappingException.Reference reference : e.getPath()) {
-            String fieldName = reference.getFieldName();
-            messages.add("Invalid field: " + fieldName);
-        }
-
-        if (ex.getCause() instanceof InvalidFormatException) {
-            InvalidFormatException ife = (InvalidFormatException) ex.getCause();
-            Class<?> targetType = ife.getTargetType();
-            if (targetType.isEnum()) {
-                String enumValues = Arrays.toString(targetType.getEnumConstants());
-                messages.add("Accepted values: " + enumValues);
-            }
-        }
-
-        body.put("messages", messages);
-
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    protected ResponseEntity<Object> handleConstraintViolation(
-            ConstraintViolationException ex, WebRequest request) {
+    protected ResponseEntity<ErrorResponseDto> handleConstraintViolation(
+            ConstraintViolationException ex, WebRequest webRequest) {
 
-        List<String> errors = ex.getConstraintViolations()
-                .stream()
-                .map(violation -> violation.getPropertyPath() + ": " + violation.getMessage())
-                .collect(Collectors.toList());
-
-        Map<String, Object> body = createResponseBody(HttpStatus.BAD_REQUEST, errors.get(0));
-
-        return ResponseEntity.badRequest().body(body);
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.BAD_REQUEST,
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(TimeoutException.class)
-    protected ResponseEntity<Object> handleTimeout(
-            TimeoutException ex, WebRequest request) {
+    protected ResponseEntity<ErrorResponseDto> handleTimeout(
+            TimeoutException ex, WebRequest webRequest) {
 
-        String error = "The request exceeded the maximum allowed time of 5 seconds.";
+        String errorMessage = "The request exceeded the maximum allowed time of 5 seconds.";
 
-        Map<String, Object> body = createResponseBody(HttpStatus.REQUEST_TIMEOUT, error);
-
-        return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).body(body);
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.REQUEST_TIMEOUT,
+                errorMessage,
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.REQUEST_TIMEOUT);
     }
 
     @ExceptionHandler(BusinessRuleException.class)
-    public ResponseEntity<Object> handleException(BusinessRuleException exception) {
+    public ResponseEntity<ErrorResponseDto> handleException(BusinessRuleException ex, WebRequest webRequest) {
 
-        Map<String, Object> body = createResponseBody(HttpStatus.BAD_REQUEST, exception.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-
-    private Map<String, Object> createResponseBody(HttpStatus status, String message) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-        body.put("status", status.value());
-        body.put("message", message);
-        return body;
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.BAD_REQUEST,
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
     }
 }

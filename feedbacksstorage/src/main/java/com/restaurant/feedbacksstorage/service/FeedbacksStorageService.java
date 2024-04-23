@@ -62,6 +62,8 @@ public class FeedbacksStorageService {
         Map<String, List<FeedbackEntity>> feedbacksByRegion = feedbacksStorageRepository.findDocumentsByRegion(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
         RegionAnalysisDto regionAnalysisDto = new RegionAnalysisDto();
 
+        if (feedbacksByRegion.isEmpty()) return regionAnalysisDto;
+
         for (Map.Entry<String, List<FeedbackEntity>> entry : feedbacksByRegion.entrySet()) {
             String region = entry.getKey();
             feedbacks = entry.getValue();
@@ -116,6 +118,8 @@ public class FeedbacksStorageService {
 
         Map<String, List<FeedbackEntity>> feedbacksByAgeGroup = feedbacksStorageRepository.findDocumentsByAgeGroup(LocalDate.parse(filterDto.initDate()), LocalDate.parse(filterDto.finalDate()));
         AgeGroupAnalysisDto ageGroupAnalysisDto = new AgeGroupAnalysisDto();
+
+        if (feedbacksByAgeGroup.isEmpty()) return ageGroupAnalysisDto;
 
         for (Map.Entry<String, List<FeedbackEntity>> entry : feedbacksByAgeGroup.entrySet()) {
             String ageGroup = entry.getKey();
