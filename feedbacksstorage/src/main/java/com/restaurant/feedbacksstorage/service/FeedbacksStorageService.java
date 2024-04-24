@@ -178,8 +178,11 @@ public class FeedbacksStorageService {
         Query query = new Query();
         HashMap<String, String> mapFiltersAdded = new HashMap<>();
 
-        query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
+        query.addCriteria((Criteria.where("date").gte(LocalDate.parse(customAnalysisFilterDto.initDate())).lte(LocalDate.parse(customAnalysisFilterDto.finalDate()))));
+        mapFiltersAdded.put("initDate", customAnalysisFilterDto.initDate());
+        mapFiltersAdded.put("finalDate", customAnalysisFilterDto.finalDate());
 
+        query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
         mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
         mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.maxRating().toString());
 
