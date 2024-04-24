@@ -14,15 +14,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
+        <module name="gatewayserver" />
         <module name="feedbackscollector" />
         <module name="feedbacksanalysis" />
-        <module name="getewayserver" />
         <module name="feedbacksstorage" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="17" />
       <module name="feedbacks-collector" target="17" />
+      <module name="getewayserver" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -33,6 +34,7 @@
       <module name="feedbacksanalysis (2)" options="-parameters" />
       <module name="feedbackscollector" options="-parameters" />
       <module name="feedbacksstorage" options="-parameters" />
+      <module name="gatewayserver" options="-parameters" />
       <module name="getewayserver" options="-parameters" />
     </option>
   </component>

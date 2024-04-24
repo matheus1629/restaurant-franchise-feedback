@@ -1,4 +1,4 @@
-package com.restaurant.getewayserver.controller;
+package com.restaurant.gatewayserver.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

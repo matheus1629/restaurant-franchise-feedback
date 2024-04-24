@@ -1,10 +1,10 @@
-package com.restaurant.getewayserver;
+package com.restaurant.gatewayserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GetewayserverApplicationTests {
+class GatewayserverApplicationTests {
 
     @Test
     void contextLoads() {

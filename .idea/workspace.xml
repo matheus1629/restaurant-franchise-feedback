@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/getewayserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/java/com/restaurant/getewayserver/GetewayserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/src/main/java/com/restaurant/gatewayserver/GatewayserverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/java/com/restaurant/getewayserver/controller/FallbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/src/main/java/com/restaurant/gatewayserver/controller/FallbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getewayserver/src/test/java/com/restaurant/getewayserver/GetewayserverApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/src/test/java/com/restaurant/gatewayserver/GatewayserverApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,40 +76,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.32068965&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.repository&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c3a55f3f76ad1bbf3afcddad5db6e679&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/docker-compose",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.32068965",
+    "settings.editor.selected.configurable": "com.haulmont.jpb.repository",
+    "spring.configuration.checksum": "c3a55f3f76ad1bbf3afcddad5db6e679",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "yaml"
+    ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\docker-compose" />
+      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback" />
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksstorage\src\main\java\com\restaurant\feedbacksstorage\dto" />
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalysis\src\main\java\com\restaurant\feedbacksanalysis" />
       <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksstorage\src\main\java\com\restaurant\feedbacksstorage" />
-      <recent name="C:\Users\matheus.palermo\Desktop\Estudo\restaurant-franchise-feedback\feedbacksanalyzer\src\main\java\com\restaurant\feedbacksanalyzer" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.restaurant.feedbackscollector.dto" />
@@ -144,19 +161,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetewayserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="getewayserver" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.getewayserver.GetewayserverApplication" />
+    <configuration name="GatewayserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gatewayserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.gatewayserver.GatewayserverApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.GatewayserverApplication" />
       <item itemvalue="Spring Boot.EurekaserverApplication" />
       <item itemvalue="Spring Boot.FeedbacksstorageApplication" />
       <item itemvalue="Spring Boot.FeedbackscollectorApplication" />
       <item itemvalue="Spring Boot.FeedbacksanalysisApplication" />
-      <item itemvalue="Spring Boot.GetewayserverApplication" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -192,7 +209,8 @@
       <workItem from="1713788366191" duration="19001000" />
       <workItem from="1713874921760" duration="12190000" />
       <workItem from="1713894847985" duration="6848000" />
-      <workItem from="1713961526771" duration="6843000" />
+      <workItem from="1713961526771" duration="7763000" />
+      <workItem from="1713970350831" duration="2930000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />

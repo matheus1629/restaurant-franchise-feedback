@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.restaurant</groupId>
-    <artifactId>getewayserver</artifactId>
+    <artifactId>gatewayserver</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>getewayserver</name>
+    <name>gatewayserver</name>
     <description>Edge Server for Restaurant Franchise Feedback microservices</description>
     <properties>
         <java.version>17</java.version>
