@@ -34,8 +34,8 @@ public class DatabaseSeederFeedback {
     }
 
     public static LocalDate generateRandomDate() {
-        long startEpochDay = LocalDate.of(2021, 1, 1).toEpochDay(); // 01/01/2021
-        long endEpochDay = LocalDate.of(2024, 3, 31).toEpochDay(); // 31/03/2024
+        long startEpochDay = LocalDate.of(2021, 1, 1).toEpochDay();
+        long endEpochDay = LocalDate.of(2024, 3, 31).toEpochDay();
         long randomDay = ThreadLocalRandom.current().nextLong(startEpochDay, endEpochDay);
 
         return LocalDate.ofEpochDay(randomDay);

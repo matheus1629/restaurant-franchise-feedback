@@ -7,6 +7,9 @@ spring:
   cloud:
     function:
       definition: receiveAnalysisByRegion;receiveAnalysisAgeGroup;receiveCustomAnalysis
+    openfeign:
+      circuitbreaker:
+        enabled: true
     stream:
       bindings:
         receiveAnalysisByRegion-in-0:
