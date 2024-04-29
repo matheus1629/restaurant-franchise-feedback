@@ -12,8 +12,8 @@ services:
           memory: 700m
     environment:
       JAVA_TOOL_OPTIONS: "-javaagent:/app/libs/opentelemetry-javaagent-1.32.0.jar"
-      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4317 # opentelemetry vai enviar todas os logs para o tempo na porta 4317
-      OTEL_METRICS_EXPORTER: none #  none pois já estamos uma outra ferramenta para exportar as métricas (prometheus)
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4317 
+      OTEL_METRICS_EXPORTER: none 
     
   microservice-eureka-config:
     extends:
