@@ -22,8 +22,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 public class CustomAnalysisFilterDto {
 
-
-    // TODO DateTimeParseException
     @Schema(description = "Initial date", example = "2022-03-05", defaultValue = "1970-01-01")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private String initDate;

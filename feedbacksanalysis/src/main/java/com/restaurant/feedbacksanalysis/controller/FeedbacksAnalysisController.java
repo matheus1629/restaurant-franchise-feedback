@@ -1,10 +1,10 @@
 package com.restaurant.feedbacksanalysis.controller;
 
 import com.restaurant.feedbacksanalysis.dto.*;
+import com.restaurant.feedbacksanalysis.exception.ResourceNotFoundException;
 import com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisService;
 import com.restaurant.feedbacksanalysis.validators.Validator;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -47,18 +47,15 @@ public class FeedbacksAnalysisController {
                     description = "HTTP Status Ok"
             ),
             @ApiResponse(
-                    responseCode = "204",
-                    description = "HTTP Status No Content",
-                    headers = {
-                            @Header(name = headerName, description = headerValue)
-                    },
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request",
                     content = @Content(
-                            schema = @Schema()
+                            schema = @Schema(implementation = ErrorResponseDto.class)
                     )
             ),
             @ApiResponse(
-                    responseCode = "400",
-                    description = "HTTP Status Bad Request",
+                    responseCode = "404",
+                    description = "HTTP Status Not Found",
                     content = @Content(
                             schema = @Schema(implementation = ErrorResponseDto.class)
                     )
@@ -97,7 +94,7 @@ public class FeedbacksAnalysisController {
                 regionAnalysisDto.getMidwest() == null &&
                 regionAnalysisDto.getNortheast() == null &&
                 regionAnalysisDto.getNorth() == null) {
-            return ResponseEntity.noContent().header(headerName, headerValue).build();
+            throw new ResourceNotFoundException("No feedback was found based on the selected parameters");
         }
 
         return ResponseEntity.ok(regionAnalysisDto);
@@ -117,18 +114,15 @@ public class FeedbacksAnalysisController {
                     )
             ),
             @ApiResponse(
-                    responseCode = "204",
-                    description = "HTTP Status No Content",
-                    headers = {
-                            @Header(name = headerName, description = headerValue)
-                    },
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request",
                     content = @Content(
-                            schema = @Schema()
+                            schema = @Schema(implementation = ErrorResponseDto.class)
                     )
             ),
             @ApiResponse(
-                    responseCode = "400",
-                    description = "HTTP Status Bad Request",
+                    responseCode = "404",
+                    description = "HTTP Status Not Found",
                     content = @Content(
                             schema = @Schema(implementation = ErrorResponseDto.class)
                     )
@@ -167,7 +161,7 @@ public class FeedbacksAnalysisController {
                 ageGroupAnalysisDto.getAgeGroup36To50() == null &&
                 ageGroupAnalysisDto.getAgeGroup51To70() == null &&
                 ageGroupAnalysisDto.getAgeGroup71To110() == null) {
-            return ResponseEntity.noContent().header(headerName, headerValue).build();
+            throw new ResourceNotFoundException("No feedback was found based on the selected parameters");
         }
 
         return ResponseEntity.ok(ageGroupAnalysisDto);
@@ -182,13 +176,10 @@ public class FeedbacksAnalysisController {
                     responseCode = "200",
                     description = "HTTP Status Ok"),
             @ApiResponse(
-                    responseCode = "204",
-                    description = "HTTP Status No Content",
-                    headers = {
-                            @Header(name = headerName, description = headerValue)
-                    },
+                    responseCode = "404",
+                    description = "HTTP Status Not Found",
                     content = @Content(
-                            schema = @Schema()
+                            schema = @Schema(implementation = ErrorResponseDto.class)
                     )
             ),
             @ApiResponse(
@@ -217,7 +208,6 @@ public class FeedbacksAnalysisController {
     @GetMapping("/custom-analysis")
     public ResponseEntity<CustomAnalysisDto> customFeedbackAnalysis(@ModelAttribute CustomAnalysisFilterDto customAnalysisFilterDto) throws ExecutionException, InterruptedException, TimeoutException {
 
-        // TODO json
         if (customAnalysisFilterDto.getInitDate() != null && customAnalysisFilterDto.getFinalDate() != null) {
             Validator.validateDateFilter(LocalDate.parse(customAnalysisFilterDto.getInitDate(), DateTimeFormatter.ISO_LOCAL_DATE), LocalDate.parse(customAnalysisFilterDto.getFinalDate(), DateTimeFormatter.ISO_LOCAL_DATE));
         }
@@ -231,7 +221,7 @@ public class FeedbacksAnalysisController {
         CustomAnalysisDto customAnalysisDto = future.get(5, TimeUnit.SECONDS);
 
         if (customAnalysisDto.getFiltersAdded() == null) {
-            return ResponseEntity.noContent().header(headerName, headerValue).build();
+            throw new ResourceNotFoundException("No feedback was found based on the selected parameters");
         }
 
         return ResponseEntity.ok(customAnalysisDto);
