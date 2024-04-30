@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
-      <change afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/ResourceNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/controller/FeedbacksAnalysisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/util/StatisticsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/util/StatisticsCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +199,7 @@
       <workItem from="1713961526771" duration="7763000" />
       <workItem from="1713970350831" duration="2930000" />
       <workItem from="1714134912338" duration="17505000" />
-      <workItem from="1714394166734" duration="7354000" />
+      <workItem from="1714394166734" duration="9118000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />

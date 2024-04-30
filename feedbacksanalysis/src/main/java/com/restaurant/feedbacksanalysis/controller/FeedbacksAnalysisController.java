@@ -12,6 +12,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -32,10 +34,8 @@ import java.util.concurrent.TimeoutException;
         description = "Get analysis of feedbacks stored in the database")
 public class FeedbacksAnalysisController {
 
-
+    private static final Logger logger = LoggerFactory.getLogger(FeedbacksAnalysisController.class);
     private final FeedbacksAnalysisService feedbacksAnalysisService;
-    private final String headerName = "Analysis Result";
-    private final String headerValue = "No feedback was found based on the selected filters";
 
     @Operation(
             summary = "Get Feedbacks Analysis by Region",
@@ -85,10 +85,11 @@ public class FeedbacksAnalysisController {
         CompletableFuture<RegionAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setRegionAnalysisCallback(future::complete);
+        logger.debug("getAnalysisByRegion method start");
         feedbacksAnalysisService.getAnalysisByRegion(initDate, finalDate);
 
         RegionAnalysisDto regionAnalysisDto = future.get(5, TimeUnit.SECONDS);
-
+        logger.debug("getAnalysisByRegion method end");
         if (regionAnalysisDto.getSouth() == null &&
                 regionAnalysisDto.getSoutheast() == null &&
                 regionAnalysisDto.getMidwest() == null &&
@@ -152,10 +153,11 @@ public class FeedbacksAnalysisController {
         CompletableFuture<AgeGroupAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setAgeGroupAnalysisCallback(future::complete);
+        logger.debug("getAnalysisByAgeGroup method start");
         feedbacksAnalysisService.getAnalysisByAgeGroup(initDate, finalDate);
 
         AgeGroupAnalysisDto ageGroupAnalysisDto = future.get(5, TimeUnit.SECONDS);
-
+        logger.debug("getAnalysisByAgeGroup method end");
         if (ageGroupAnalysisDto.getAgeGroup16To24() == null &&
                 ageGroupAnalysisDto.getAgeGroup25To35() == null &&
                 ageGroupAnalysisDto.getAgeGroup36To50() == null &&
@@ -176,15 +178,15 @@ public class FeedbacksAnalysisController {
                     responseCode = "200",
                     description = "HTTP Status Ok"),
             @ApiResponse(
-                    responseCode = "404",
-                    description = "HTTP Status Not Found",
+                    responseCode = "400",
+                    description = "HTTP Status Bad Request",
                     content = @Content(
                             schema = @Schema(implementation = ErrorResponseDto.class)
                     )
             ),
             @ApiResponse(
-                    responseCode = "400",
-                    description = "HTTP Status Bad Request",
+                    responseCode = "404",
+                    description = "HTTP Status Not Found",
                     content = @Content(
                             schema = @Schema(implementation = ErrorResponseDto.class)
                     )
@@ -216,10 +218,11 @@ public class FeedbacksAnalysisController {
         CompletableFuture<CustomAnalysisDto> future = new CompletableFuture<>();
 
         feedbacksAnalysisService.setCustomAnalysisCallback(future::complete);
+        logger.debug("getCustomAnalysis method start");
         feedbacksAnalysisService.getCustomAnalysis(customAnalysisFilterDto);
 
         CustomAnalysisDto customAnalysisDto = future.get(5, TimeUnit.SECONDS);
-
+        logger.debug("getCustomAnalysis method end");
         if (customAnalysisDto.getFiltersAdded() == null) {
             throw new ResourceNotFoundException("No feedback was found based on the selected parameters");
         }

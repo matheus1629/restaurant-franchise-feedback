@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +30,7 @@ import java.util.concurrent.TimeoutException;
 @Tag(name = "Send Feedback")
 public class FeedbacksCollectorController {
 
+    private static final Logger logger = LoggerFactory.getLogger(FeedbacksCollectorController.class);
     private final FeedbacksCollectorService feedbacksCollectorService;
 
     @Operation(
@@ -58,7 +61,9 @@ public class FeedbacksCollectorController {
     )
     @PostMapping("/send-feedback")
     public ResponseEntity<Void> sendFeedback(@Valid @RequestBody FeedbackDto feedbackDto) throws TimeoutException, ExecutionException, InterruptedException {
+        logger.debug("sendFeedback method start");
         feedbacksCollectorService.sendFeedback(feedbackDto);
+        logger.debug("sendFeedback method end");
         return ResponseEntity.accepted().build();
     }
 }

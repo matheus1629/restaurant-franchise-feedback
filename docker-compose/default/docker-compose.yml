@@ -223,6 +223,8 @@ services:
   mongodb:
     container_name: mongodb
     image: mongo:7.0.7
+    ports:
+      - "27017:27017"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
@@ -234,10 +236,6 @@ services:
       retries: 10
       interval: 10s
       start_period: 10s
-    networks: 
-      - restaurantfeedbacks
-    ports:
-      - "27017:27017"
     extends:
       file: common-config.yml
       service: network-deploy-service
@@ -288,12 +286,6 @@ services:
     container_name: feedbacksstorage-ms
     ports:
       - "9010:9010"
-    healthcheck:
-      test: "curl --fail --silent localhost:8090/actuator/health/readiness | grep UP || exit 1" 
-      interval: 20s
-      timeout: 5s
-      retries: 10
-      start_period: 20s
     environment:
       SPRING_APPLICATION_NAME: "feedbacksstorage"
       OTEL_SERVICE_NAME: "feedbacksstorage" 
@@ -312,7 +304,7 @@ services:
     ports:
       - "8081:8081"
     healthcheck:
-      test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8081/actuator/health/readiness | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 20
@@ -332,8 +324,6 @@ services:
       - "8072:8072"
     depends_on:
       feedbackscollector:
-        condition: service_healthy
-      feedbacksstorage:
         condition: service_healthy
       feedbacksanalysis:
         condition: service_healthy
