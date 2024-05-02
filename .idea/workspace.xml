@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
-      <change afterPath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +112,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.restaurant.feedbacksanalysis.service" />
       <recent name="com.restaurant.feedbackscollector.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -131,11 +130,27 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException">
+  <component name="RunManager" selected="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion">
     <configuration name="All in feedbackscollector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbackscollector" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feedbacksanalysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.restaurant.feedbacksanalysis.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.restaurant.feedbacksanalysis.service" />
+      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisServiceTest" />
+      <option name="METHOD_NAME" value="testGetAnalysisByRegion(java.time.LocalDate,java.time.LocalDate)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,6 +239,7 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in feedbackscollector" />
+      <item itemvalue="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" />
       <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
       <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedbackTest" />
       <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException" />
@@ -235,6 +251,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" />
         <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException" />
         <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedbackTest" />
         <item itemvalue="JUnit.All in feedbackscollector" />
@@ -279,7 +296,7 @@
       <workItem from="1713970350831" duration="2930000" />
       <workItem from="1714134912338" duration="17505000" />
       <workItem from="1714394166734" duration="9118000" />
-      <workItem from="1714650597336" duration="9512000" />
+      <workItem from="1714650597336" duration="13105000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
