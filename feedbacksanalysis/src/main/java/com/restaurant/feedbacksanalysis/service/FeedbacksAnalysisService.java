@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-// TODO Setter getters
 @Service
 @RequiredArgsConstructor
 public class FeedbacksAnalysisService {

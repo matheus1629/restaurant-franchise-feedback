@@ -2,9 +2,12 @@ package com.restaurant.feedbackscollector.service;
 
 import com.restaurant.feedbackscollector.dto.FeedbackDto;
 import com.restaurant.feedbackscollector.dto.FeedbackStorageDto;
+import com.restaurant.feedbackscollector.enums.Gender;
+import com.restaurant.feedbackscollector.enums.LevelSatisfaction;
 import com.restaurant.feedbackscollector.exception.ResourceNotFoundException;
 import com.restaurant.feedbackscollector.model.RestaurantEntity;
 import com.restaurant.feedbackscollector.repository.RestaurantRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -32,12 +35,29 @@ class FeedbacksCollectorServiceTest {
     @Mock
     private RestaurantRepository restaurantRepository;
 
+    private FeedbackDto feedbackDto;
+    private Integer idRestaurant;
+
+    @BeforeEach
+    public void setup() {
+        idRestaurant = 1;
+        feedbackDto = new FeedbackDto(1,
+                25,
+                Gender.MALE,
+                8,
+                LevelSatisfaction.SATISFIED,
+                true,
+                LevelSatisfaction.SATISFIED,
+                LevelSatisfaction.SATISFIED,
+                LevelSatisfaction.SATISFIED
+        );
+
+
+    }
+
     @Test
-    void testSendFeedback() throws ExecutionException, InterruptedException, TimeoutException {
+    void shouldSendFeedback() throws ExecutionException, InterruptedException, TimeoutException {
         // SETUP
-        Integer idRestaurant = 1;
-        FeedbackDto feedbackDto = mock(FeedbackDto.class);
-        when(feedbackDto.getIdRestaurant()).thenReturn(idRestaurant);
         RestaurantEntity restaurantEntity = new RestaurantEntity(1, "SOUTHEAST", "São Paulo", "Campinas", "35235642");
 
         when(restaurantRepository.findById(idRestaurant)).thenReturn(Optional.of(restaurantEntity));
@@ -53,10 +73,8 @@ class FeedbacksCollectorServiceTest {
 
 
     @Test
-    void sendFeedback_ResourceNotFoundException() {
+    void shouldThrownResourceNotFoundException_whenNoRestaurantIsFound() {
         // SETUP
-        Integer idRestaurant = 1;
-        FeedbackDto feedbackDto = new FeedbackDto();
         feedbackDto.setIdRestaurant(idRestaurant);
         when(restaurantRepository.findById(idRestaurant)).thenReturn(Optional.empty());
 
@@ -64,5 +82,20 @@ class FeedbacksCollectorServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> feedbacksCollectorService.sendFeedback(feedbackDto));
     }
 
+    @Test
+    void shouldThrownTimeoutException_whenSendFeedbackTakesTooLong() {
+        // SETUP
+        RestaurantEntity restaurantEntity = new RestaurantEntity(1, "SOUTHEAST", "São Paulo", "Campinas", "35235642");
 
+        feedbackDto.setIdRestaurant(idRestaurant);
+        when(restaurantRepository.findById(idRestaurant)).thenReturn(Optional.of(restaurantEntity));
+
+        when(streamBridge.send(any(String.class), any(FeedbackStorageDto.class))).thenAnswer(invocation -> {
+            Thread.sleep(6000);
+            return true;
+        });
+
+        // ACT & ASSERT
+        assertThrows(TimeoutException.class, () -> feedbacksCollectorService.sendFeedback(feedbackDto));
+    }
 }

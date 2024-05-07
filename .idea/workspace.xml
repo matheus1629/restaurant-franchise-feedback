@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
+      <change afterPath="$PROJECT_DIR$/Test Results - FeedbacksCollectorServiceTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/demo">
       <ProjectState />
@@ -65,38 +71,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/docker-compose/default",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.32068965",
-    "settings.editor.selected.configurable": "com.haulmont.jpb.repository",
-    "spring.configuration.checksum": "b32ab61609db7e01a4c495b3fb6e2628",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matheus.palermo/Desktop/Estudo/restaurant-franchise-feedback/docker-compose/default&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.32068965&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.repository&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b32ab61609db7e01a4c495b3fb6e2628&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "yaml"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;yaml&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -112,6 +118,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.restaurant.feedbacksstorage.service" />
       <recent name="com.restaurant.feedbacksanalysis.service" />
       <recent name="com.restaurant.feedbackscollector.service" />
     </key>
@@ -130,7 +137,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion">
+  <component name="RunManager" selected="JUnit.FeedbacksAnalysisServiceTest">
     <configuration name="All in feedbackscollector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbackscollector" />
       <option name="PACKAGE_NAME" value="" />
@@ -139,7 +146,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FeedbacksAnalysisServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbacksanalysis" />
       <extension name="coverage">
         <pattern>
@@ -149,8 +156,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.restaurant.feedbacksanalysis.service" />
       <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksanalysis.service.FeedbacksAnalysisServiceTest" />
-      <option name="METHOD_NAME" value="testGetAnalysisByRegion(java.time.LocalDate,java.time.LocalDate)" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,33 +176,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbacksCollectorServiceTest.sendFeedbackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="feedbackscollector" />
+    <configuration name="FeedbacksStorageServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feedbacksstorage" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.restaurant.feedbackscollector.service.*" />
+          <option name="PATTERN" value="com.restaurant.feedbacksstorage.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.restaurant.feedbackscollector.service" />
-      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbackscollector.service.FeedbacksCollectorServiceTest" />
-      <option name="METHOD_NAME" value="sendFeedbackTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.restaurant.feedbacksstorage.service" />
+      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksstorage.service.FeedbacksStorageServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="feedbackscollector" />
+    <configuration name="FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feedbacksstorage" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.restaurant.feedbackscollector.service.*" />
+          <option name="PATTERN" value="com.restaurant.feedbacksstorage.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.restaurant.feedbackscollector.service" />
-      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbackscollector.service.FeedbacksCollectorServiceTest" />
-      <option name="METHOD_NAME" value="sendFeedback_ResourceNotFoundException" />
+      <option name="PACKAGE_NAME" value="com.restaurant.feedbacksstorage.service" />
+      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksstorage.service.FeedbacksStorageServiceTest" />
+      <option name="METHOD_NAME" value="shouldGetAnalysisByRegionNonEmptyReturn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -239,10 +244,10 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in feedbackscollector" />
-      <item itemvalue="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" />
+      <item itemvalue="JUnit.FeedbacksAnalysisServiceTest" />
       <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
-      <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedbackTest" />
-      <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException" />
+      <item itemvalue="JUnit.FeedbacksStorageServiceTest" />
+      <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" />
       <item itemvalue="Spring Boot.EurekaserverApplication" />
       <item itemvalue="Spring Boot.FeedbacksstorageApplication" />
       <item itemvalue="Spring Boot.FeedbackscollectorApplication" />
@@ -251,11 +256,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FeedbacksAnalysisServiceTest.testGetAnalysisByRegion" />
-        <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedback_ResourceNotFoundException" />
-        <item itemvalue="JUnit.FeedbacksCollectorServiceTest.sendFeedbackTest" />
-        <item itemvalue="JUnit.All in feedbackscollector" />
+        <item itemvalue="JUnit.FeedbacksAnalysisServiceTest" />
         <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
+        <item itemvalue="JUnit.All in feedbackscollector" />
+        <item itemvalue="JUnit.FeedbacksStorageServiceTest" />
+        <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +301,10 @@
       <workItem from="1713970350831" duration="2930000" />
       <workItem from="1714134912338" duration="17505000" />
       <workItem from="1714394166734" duration="9118000" />
-      <workItem from="1714650597336" duration="13105000" />
+      <workItem from="1714650597336" duration="16600000" />
+      <workItem from="1714742729846" duration="10455000" />
+      <workItem from="1714996651086" duration="15754000" />
+      <workItem from="1715083140226" duration="4479000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
@@ -392,6 +400,15 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksCollectorServiceTest_sendFeedbackTest.ic" NAME="FeedbacksCollectorServiceTest.sendFeedbackTest Coverage Results" MODIFIED="1714661203483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.restaurant.feedbackscollector.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksStorageServiceTest.ic" NAME="FeedbacksStorageServiceTest Coverage Results" MODIFIED="1715088001906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.restaurant.feedbacksstorage.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksAnalysisServiceTest.ic" NAME="FeedbacksAnalysisServiceTest Coverage Results" MODIFIED="1715002660940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.restaurant.feedbacksanalysis.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksCollectorServiceTest.ic" NAME="FeedbacksCollectorServiceTest Coverage Results" MODIFIED="1715000475772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.restaurant.feedbackscollector.service.*</FILTER>
     </SUITE>
   </component>
