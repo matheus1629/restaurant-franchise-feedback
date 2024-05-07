@@ -241,7 +241,7 @@ services:
       service: network-deploy-service
       
   eurekaserver:
-    image: "matheusp16/eurekaserver"
+    image: "eurekaserver"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -259,7 +259,7 @@ services:
       OTEL_SERVICE_NAME: "eurekaserver" 
 
   feedbackscollector:
-    image: "matheusp16/feedbackscollector"
+    image: "feedbackscollector"
     container_name: feedbackscollector-ms
     ports:
       - "8080:8080"
@@ -282,7 +282,7 @@ services:
       service: microservice-eureka-config
 
   feedbacksstorage:
-    image: "matheusp16/feedbacksstorage"
+    image: "feedbacksstorage"
     container_name: feedbacksstorage-ms
     ports:
       - "9010:9010"
@@ -299,7 +299,7 @@ services:
       service: microservice-eureka-config
 
   feedbacksanalysis:
-    image: "matheusp16/feedbacksanalysis"
+    image: "feedbacksanalysis"
     container_name: feedbacksanalysis-ms
     ports:
       - "8081:8081"
@@ -318,7 +318,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "matheusp16/gatewayserver"
+    image: "gatewayserver"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

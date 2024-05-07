@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
-      <change afterPath="$PROJECT_DIR$/Test Results - FeedbacksCollectorServiceTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/main/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/src/test/java/com/restaurant/feedbacksanalysis/service/FeedbacksAnalysisServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurekaserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/java/com/restaurant/eurekaserver/EurekaserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/java/com/restaurant/eurekaserver/EurekaserverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedbacksstorage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +305,7 @@
       <workItem from="1714650597336" duration="16600000" />
       <workItem from="1714742729846" duration="10455000" />
       <workItem from="1714996651086" duration="15754000" />
-      <workItem from="1715083140226" duration="4479000" />
+      <workItem from="1715083140226" duration="8067000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
@@ -405,10 +406,10 @@
     <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksStorageServiceTest.ic" NAME="FeedbacksStorageServiceTest Coverage Results" MODIFIED="1715088001906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.restaurant.feedbacksstorage.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksAnalysisServiceTest.ic" NAME="FeedbacksAnalysisServiceTest Coverage Results" MODIFIED="1715002660940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksAnalysisServiceTest.ic" NAME="FeedbacksAnalysisServiceTest Coverage Results" MODIFIED="1715088252418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.restaurant.feedbacksanalysis.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksCollectorServiceTest.ic" NAME="FeedbacksCollectorServiceTest Coverage Results" MODIFIED="1715000475772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/restaurant_franchise_feedback$FeedbacksCollectorServiceTest.ic" NAME="FeedbacksCollectorServiceTest Coverage Results" MODIFIED="1715088227962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.restaurant.feedbackscollector.service.*</FILTER>
     </SUITE>
   </component>
