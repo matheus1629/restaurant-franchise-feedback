@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/java/com/restaurant/eurekaserver/EurekaserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/java/com/restaurant/eurekaserver/EurekaserverApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksanalysis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatewayserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gatewayserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +299,7 @@
       <workItem from="1714650597336" duration="16600000" />
       <workItem from="1714742729846" duration="10455000" />
       <workItem from="1714996651086" duration="15754000" />
-      <workItem from="1715083140226" duration="8067000" />
+      <workItem from="1715083140226" duration="8886000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
