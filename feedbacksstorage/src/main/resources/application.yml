@@ -9,6 +9,8 @@ spring:
       host: localhost
       port: 27017
       database: feedback-restaurant
+  cache:
+    type: redis
   cloud:
     function:
       definition: feedbacksReceiver;analysisByRegion;requestAnalysisByAgeGroup;requestCustomAnalysis
@@ -67,7 +69,7 @@ endpoints:
 info:
   app:
     name: "feedbacksstorage"
-    description: "Restaurant Franchise Feedbacks Analysis Application"
+    description: "Restaurant Franchise Feedbacks Storage Application"
     version: "1.0.0"
 
 logging:

@@ -8,13 +8,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class CustomAnalysisDto {
+public class CustomAnalysisDto implements Serializable {
     private Map<String, String> filtersAdded;
     private Map<Region, String> regionStatistic;
     private Map<String, String> ageStatistic;

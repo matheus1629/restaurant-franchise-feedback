@@ -9,13 +9,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class StatisticAgeGroupCategory {
+public class StatisticAgeGroupCategory implements Serializable {
     private Map<Region, String> regionStatistic;
     private Map<Gender, String> genderStatistic;
     private Map<String, String> ratingStatistic;

@@ -239,6 +239,25 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
+
+  redis:
+    container_name: redis
+    image: redis:7.2.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - cache:/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 10s
+      retries: 10
+      interval: 10s
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
       
   eurekaserver:
     image: "eurekaserver"
@@ -291,8 +310,12 @@ services:
       OTEL_SERVICE_NAME: "feedbacksstorage" 
       SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS: "kafka:9092"
       SPRING_DATA_MONGODB_URI: mongodb://root:root@mongodb:27017/
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
     depends_on:
       mongodb:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     extends:
       file: common-config.yml
@@ -341,4 +364,5 @@ networks:
 volumes:
   mongodb_data:
   kafka_data:
+  cache:
  

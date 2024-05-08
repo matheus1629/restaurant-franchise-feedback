@@ -8,6 +8,7 @@ import com.restaurant.feedbacksstorage.model.FeedbackEntity;
 import com.restaurant.feedbacksstorage.repository.FeedbacksStorageRepository;
 import com.restaurant.feedbacksstorage.util.StatisticsCalculator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -48,6 +49,7 @@ public class FeedbacksStorageService {
         feedbacksStorageRepository.save(feedbackEntity);
     }
 
+    @Cacheable("region")
     public RegionAnalysisDto getAnalysisByRegion(TimeFilterDto filterDto) {
         List<FeedbackEntity> feedbacks;
         List<Integer> ageList = new ArrayList<>();
@@ -105,6 +107,7 @@ public class FeedbacksStorageService {
         return regionAnalysisDto;
     }
 
+    @Cacheable("age")
     public AgeGroupAnalysisDto getAnalysisByAgeGroup(TimeFilterDto filterDto) {
         List<FeedbackEntity> feedbacks;
         List<String> regionList = new ArrayList<>();
@@ -162,6 +165,7 @@ public class FeedbacksStorageService {
         return ageGroupAnalysisDto;
     }
 
+    @Cacheable("custom")
     public CustomAnalysisDto getCustomAnalysis(CustomAnalysisFilterDto customAnalysisFilterDto) {
         List<FeedbackEntity> feedbacks;
         List<Integer> ageList = new ArrayList<>();
