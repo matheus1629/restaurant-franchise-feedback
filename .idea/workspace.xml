@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage.json/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.usage.json/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/tmp/a9384dcd-40a7-4776-9d2b-83a8a11fea00" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19851/1715186727-cfb8cb172920-1715175097971604327.tsdb.gz/xl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +145,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FeedbacksstorageApplication">
+  <component name="RunManager" selected="JUnit.FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn">
     <configuration name="All in feedbackscollector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbackscollector" />
       <option name="PACKAGE_NAME" value="" />
@@ -170,7 +184,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbacksStorageServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbacksstorage" />
       <extension name="coverage">
         <pattern>
@@ -180,26 +194,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.restaurant.feedbacksstorage.service" />
       <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksstorage.service.FeedbacksStorageServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="feedbacksstorage" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.restaurant.feedbacksstorage.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.restaurant.feedbacksstorage.service" />
-      <option name="MAIN_CLASS_NAME" value="com.restaurant.feedbacksstorage.service.FeedbacksStorageServiceTest" />
-      <option name="METHOD_NAME" value="shouldGetAnalysisByRegionNonEmptyReturn" />
+      <option name="METHOD_NAME" value="shouldGetCustomAnalysisNonEmptyReturn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/restaurant-franchise-feedback/feedbacksstorage/target/site/apidocs/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
     </configuration>
     <configuration name="EurekaserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eurekaserver" />
@@ -237,11 +239,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.index.html" />
+      <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn" />
       <item itemvalue="JUnit.All in feedbackscollector" />
       <item itemvalue="JUnit.FeedbacksAnalysisServiceTest" />
       <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
-      <item itemvalue="JUnit.FeedbacksStorageServiceTest" />
-      <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" />
       <item itemvalue="Spring Boot.EurekaserverApplication" />
       <item itemvalue="Spring Boot.FeedbacksstorageApplication" />
       <item itemvalue="Spring Boot.FeedbackscollectorApplication" />
@@ -250,11 +252,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JUnit.FeedbacksAnalysisServiceTest" />
         <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
         <item itemvalue="JUnit.All in feedbackscollector" />
-        <item itemvalue="JUnit.FeedbacksStorageServiceTest" />
-        <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetAnalysisByRegionNonEmptyReturn" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +300,8 @@
       <workItem from="1714650597336" duration="16600000" />
       <workItem from="1714742729846" duration="10455000" />
       <workItem from="1714996651086" duration="15754000" />
-      <workItem from="1715083140226" duration="28607000" />
+      <workItem from="1715083140226" duration="32590000" />
+      <workItem from="1715256645492" duration="14257000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />

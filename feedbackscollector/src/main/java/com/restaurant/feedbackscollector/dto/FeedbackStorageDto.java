@@ -2,10 +2,12 @@ package com.restaurant.feedbackscollector.dto;
 
 import com.restaurant.feedbackscollector.enums.Gender;
 import com.restaurant.feedbackscollector.enums.LevelSatisfaction;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Data
+@Setter
+@Getter
 public class FeedbackStorageDto extends FeedbackDto {
 
     public FeedbackStorageDto(
