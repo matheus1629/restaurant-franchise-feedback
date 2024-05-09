@@ -22,7 +22,7 @@ public class FeedbacksCollectorService {
 
     private final StreamBridge streamBridge;
     private final RestaurantRepository restaurantRepository;
-    private String channel = "sendFeedback-out-0";
+    private final String channel = "sendFeedback-out-0";
 
     public void sendFeedback(FeedbackDto feedbackDto) throws ExecutionException, InterruptedException, TimeoutException {
 

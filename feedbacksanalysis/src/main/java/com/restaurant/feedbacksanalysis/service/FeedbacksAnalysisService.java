@@ -5,7 +5,9 @@ import com.restaurant.feedbacksanalysis.dto.TimeFilterDto;
 import com.restaurant.feedbacksanalysis.service.callbacks.AgeGroupAnalysisCallback;
 import com.restaurant.feedbacksanalysis.service.callbacks.CustomAnalysisCallback;
 import com.restaurant.feedbacksanalysis.service.callbacks.RegionAnalysisCallback;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
@@ -16,33 +18,15 @@ import java.time.LocalDate;
 public class FeedbacksAnalysisService {
 
     private final StreamBridge streamBridge;
+    @Getter
+    @Setter
     private RegionAnalysisCallback regionAnalysisCallback;
+    @Getter
+    @Setter
     private AgeGroupAnalysisCallback ageGroupAnalysisCallback;
+    @Getter
+    @Setter
     private CustomAnalysisCallback customAnalysisCallback;
-
-    public void setRegionAnalysisCallback(RegionAnalysisCallback regionAnalysisCallback) {
-        this.regionAnalysisCallback = regionAnalysisCallback;
-    }
-
-    public RegionAnalysisCallback getRegionAnalysisCallback() {
-        return this.regionAnalysisCallback;
-    }
-
-    public void setAgeGroupAnalysisCallback(AgeGroupAnalysisCallback ageGroupAnalysisCallback) {
-        this.ageGroupAnalysisCallback = ageGroupAnalysisCallback;
-    }
-
-    public AgeGroupAnalysisCallback getAgeGroupAnalysisCallback() {
-        return this.ageGroupAnalysisCallback;
-    }
-
-    public void setCustomAnalysisCallback(CustomAnalysisCallback customAnalysisCallback) {
-        this.customAnalysisCallback = customAnalysisCallback;
-    }
-
-    public CustomAnalysisCallback getCustomAnalysisCallback() {
-        return this.customAnalysisCallback;
-    }
 
     public void getAnalysisByRegion(LocalDate initDate, LocalDate finalDate) {
         if (initDate == null) initDate = LocalDate.of(1970, 1, 1);
