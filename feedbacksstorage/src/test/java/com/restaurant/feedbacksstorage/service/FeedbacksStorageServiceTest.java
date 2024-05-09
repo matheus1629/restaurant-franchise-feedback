@@ -178,7 +178,7 @@ class FeedbacksStorageServiceTest {
         filtersAddedMock.put("initDate", "2021-01-01");
         filtersAddedMock.put("MinRating", "4");
         filtersAddedMock.put("WaitingTime", "SATISFIED");
-        filtersAddedMock.put("MaxAge", "6");
+        filtersAddedMock.put("MaxAge", "65");
         filtersAddedMock.put("Region", "SOUTHEAST");
         filtersAddedMock.put("Gender", "FEMALE");
         filtersAddedMock.put("MaxRating", "6");

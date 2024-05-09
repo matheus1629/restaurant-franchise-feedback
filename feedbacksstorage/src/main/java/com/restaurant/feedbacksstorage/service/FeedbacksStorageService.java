@@ -188,7 +188,7 @@ public class FeedbacksStorageService {
 
         query.addCriteria(Criteria.where("age").gte(customAnalysisFilterDto.minAge()).lte(customAnalysisFilterDto.maxAge()));
         mapFiltersAdded.put("MinAge", customAnalysisFilterDto.minAge().toString());
-        mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.maxRating().toString());
+        mapFiltersAdded.put("MaxAge", customAnalysisFilterDto.maxAge().toString());
 
         query.addCriteria(Criteria.where("rating").gte(customAnalysisFilterDto.minRating()).lte(customAnalysisFilterDto.maxRating()));
         mapFiltersAdded.put("MinRating", customAnalysisFilterDto.minRating().toString());
