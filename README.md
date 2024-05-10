@@ -7,6 +7,7 @@
     * [Comunicação e Armazenamento](#comunicação-e-armazenamento)
     * [Resiliência e Monitoramento](#resiliência-e-monitoramento)
     * [Testes](#testes)
+    * [Diagrama Banco de dados MongoDB](#diagrama-banco-de-dados-mongodb)
   * [⚙️ Funcionalidades](#-funcionalidades)
   * [Como executar o projeto](#como-executar-o-projeto)
     * [Pré-requisitos](#pré-requisitos)
@@ -52,6 +53,9 @@ O sistema é composto por cinco microsserviços principais:
 ### Testes
 
 - Testes foram realizados nos serviços na camada de Service utilizando JUnit 5 e Mockito.
+
+### Diagrama Banco de dados MongoDB
+<img src="doc/feedbackdatabase-diagram.png" alt="Imagem do diagrama de banco de dados">
 
 ## ⚙️ Funcionalidades
 
