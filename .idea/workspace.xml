@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="doc/FeedbackAnalysisFilterDto">
+    <list default="true" id="21eb5fc2-41e9-4795-a68f-e9cf58d4db46" name="Changes" comment="fix/MaxAge">
+      <change afterPath="$PROJECT_DIR$/doc/Restaurant_Feedback.postman_collection.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19851/1715360384-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19851/1715360444-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19852/1715360384-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19852/1715360444-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19853/1715360384-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19853/1715360444-94f4cd6fec13-1715193148046091211.tsdb.gz/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/162f78230d7047cd/18f597a6d8618f6372f0d5adc1ac8a/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/2aa0a8c737449d04/18f597a778418f63727ea15c8f6c67/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/2da5a5ad3f4db424/18f597a6b1318f637233b5fb94765b/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/4c389a9d2ca23f2d/18f597abc3818f6372e571c469d7de/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/4ebb10ff31156343/18f597a71d318f637201d36d20888e/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/61aed3b9bc54bbc4/18f597a6eb118f6372435f62e68bae/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/7af9e88b324aad78/18f597a76a618f6372993cdbd57fb7/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/7dc929360035c2b6/18f597a73d418f6372f576abaa3380/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/a286d785615f9f4/18f597a733718f63727368ffd8edd5/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/ac0b1c57ecd03d41/18f597abdef18f6372e49233fa8d97/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/b8c808e1924987f4/18f597a6d4818f6372e17113d13549/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/bcbca48779ad6955/18f597a72ec18f637263c950d2627e/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/dd33d4e3f1b046b0/18f597a6f2518f637214df928864ec/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/e536d5b4d23d2b2d/18f597a6c1d18f6372d6cb22ca05c6/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/f23e39a402334870/18f597b5e2a18f6373618a8ec7b6fc/xl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/tenant1/f4d81ec89a428e99/18f597abe9118f6372bf991a77a56/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
@@ -15,11 +38,10 @@
       <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-data/.usage-cache.bin/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/buckets/loki-ruler/.usage-cache.bin/xl.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/tmp/a9384dcd-40a7-4776-9d2b-83a8a11fea00" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/loki-data/index/index_19851/1715186727-cfb8cb172920-1715175097971604327.tsdb.gz/xl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/dto/FeedbackStorageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/main/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbacksstorage/src/test/java/com/restaurant/feedbacksstorage/service/FeedbacksStorageServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/tmp/efbf4dff-bbc7-47fb-aaa2-9c3553e42dd6" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose/default/.data/minio/.minio.sys/tmp/8ea89a5c-b69c-4e08-bc66-2f9879788132" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/main/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedbackscollector/src/test/java/com/restaurant/feedbackscollector/service/FeedbacksCollectorServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +167,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn">
+  <component name="RunManager" selected="JUnit.FeedbacksCollectorServiceTest">
     <configuration name="All in feedbackscollector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feedbackscollector" />
       <option name="PACKAGE_NAME" value="" />
@@ -252,10 +274,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
         <item itemvalue="JUnit.FeedbacksStorageServiceTest.shouldGetCustomAnalysisNonEmptyReturn" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JUnit.FeedbacksAnalysisServiceTest" />
-        <item itemvalue="JUnit.FeedbacksCollectorServiceTest" />
         <item itemvalue="JUnit.All in feedbackscollector" />
       </list>
     </recent_temporary>
@@ -301,7 +323,8 @@
       <workItem from="1714742729846" duration="10455000" />
       <workItem from="1714996651086" duration="15754000" />
       <workItem from="1715083140226" duration="32590000" />
-      <workItem from="1715256645492" duration="14257000" />
+      <workItem from="1715256645492" duration="16788000" />
+      <workItem from="1715342679740" duration="12242000" />
     </task>
     <task id="LOCAL-00001" summary="restaurant and feedbacks seeders">
       <option name="closed" value="true" />
@@ -359,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714401159313</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix/MaxAge">
+      <option name="closed" value="true" />
+      <created>1715277461012</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715277461012</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +414,8 @@
     <MESSAGE value="refactor/date validator" />
     <MESSAGE value="refactor/binding kafka" />
     <MESSAGE value="doc/FeedbackAnalysisFilterDto" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc/FeedbackAnalysisFilterDto" />
+    <MESSAGE value="fix/MaxAge" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix/MaxAge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

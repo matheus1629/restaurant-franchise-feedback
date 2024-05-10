@@ -16,8 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.cloud.stream.function.StreamBridge;
 
 import java.util.Optional;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -56,7 +54,7 @@ class FeedbacksCollectorServiceTest {
     }
 
     @Test
-    void shouldSendFeedback() throws ExecutionException, InterruptedException, TimeoutException {
+    void shouldSendFeedback() {
         // SETUP
         RestaurantEntity restaurantEntity = new RestaurantEntity(1, "SOUTHEAST", "São Paulo", "Campinas", "35235642");
 
@@ -82,20 +80,4 @@ class FeedbacksCollectorServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> feedbacksCollectorService.sendFeedback(feedbackDto));
     }
 
-    @Test
-    void shouldThrownTimeoutException_whenSendFeedbackTakesTooLong() {
-        // SETUP
-        RestaurantEntity restaurantEntity = new RestaurantEntity(1, "SOUTHEAST", "São Paulo", "Campinas", "35235642");
-
-        feedbackDto.setIdRestaurant(idRestaurant);
-        when(restaurantRepository.findById(idRestaurant)).thenReturn(Optional.of(restaurantEntity));
-
-        when(streamBridge.send(any(String.class), any(FeedbackStorageDto.class))).thenAnswer(invocation -> {
-            Thread.sleep(6000);
-            return true;
-        });
-
-        // ACT & ASSERT
-        assertThrows(TimeoutException.class, () -> feedbacksCollectorService.sendFeedback(feedbackDto));
-    }
 }

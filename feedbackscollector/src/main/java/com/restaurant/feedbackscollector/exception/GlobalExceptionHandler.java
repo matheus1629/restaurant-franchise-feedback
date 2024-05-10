@@ -19,7 +19,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.TimeoutException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -104,21 +103,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(TimeoutException.class)
-    protected ResponseEntity<ErrorResponseDto> handleTimeout(
-            TimeoutException ex, WebRequest webRequest) {
-
-        String errorMessage = "The request exceeded the maximum allowed time of 5 seconds.";
-
-        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
-                webRequest.getDescription(false),
-                HttpStatus.REQUEST_TIMEOUT,
-                errorMessage,
-                LocalDateTime.now()
-        );
-        return new ResponseEntity<>(errorResponseDTO, HttpStatus.REQUEST_TIMEOUT);
     }
 
 }

@@ -10,10 +10,6 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 
 @Service
@@ -24,7 +20,7 @@ public class FeedbacksCollectorService {
     private final RestaurantRepository restaurantRepository;
     private final String channel = "sendFeedback-out-0";
 
-    public void sendFeedback(FeedbackDto feedbackDto) throws ExecutionException, InterruptedException, TimeoutException {
+    public void sendFeedback(FeedbackDto feedbackDto) {
 
         RestaurantEntity restaurantData = getRestaurantInfo(feedbackDto.getIdRestaurant());
 
@@ -35,9 +31,7 @@ public class FeedbacksCollectorService {
                 restaurantData.getRegion(), restaurantData.getState(), restaurantData.getCity(), restaurantData.getCep()
         );
 
-        CompletableFuture<Boolean> future = CompletableFuture.supplyAsync(() -> streamBridge.send(channel, feedbackStorageDto));
-
-        future.get(5, TimeUnit.SECONDS);
+        streamBridge.send(channel, feedbackStorageDto);
     }
 
     private RestaurantEntity getRestaurantInfo(Integer idRestaurant) {
