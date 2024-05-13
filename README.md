@@ -164,6 +164,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - Java 17
 - Spring Boot
+- Spring Cloud
 - MongoDB
 - Swagger
 - Kafka
